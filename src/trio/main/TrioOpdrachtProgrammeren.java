@@ -5,6 +5,9 @@
  */
 package trio.main;
 
+import trio.presentation.NetflixFrame;
+import trio.presentation.netflixView;
+
 /**
  *
  * @author twanv
@@ -15,7 +18,10 @@ public class TrioOpdrachtProgrammeren {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        NetflixFrame frame = new NetflixFrame();
+        netflixView view = new netflixView();
+        view.showCard2();
     }
     
 }
