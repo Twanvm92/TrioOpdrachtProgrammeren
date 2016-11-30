@@ -41,6 +41,7 @@ public class netflixView extends JPanel {
         add (overview2, CARD2);
         add (overview3, CARD3);  
         
+       
     }
     
     public void showCard1(){

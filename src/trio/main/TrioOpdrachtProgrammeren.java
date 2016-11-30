@@ -20,8 +20,7 @@ public class TrioOpdrachtProgrammeren {
     public static void main(String[] args) {
         
         NetflixFrame frame = new NetflixFrame();
-        netflixView view = new netflixView();
-        view.showCard2();
+  
     }
     
 }
