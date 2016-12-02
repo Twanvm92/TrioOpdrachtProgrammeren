@@ -16,7 +16,12 @@ import trio.domain.Program;
  * @author lukab
  */
 public class netflixView extends JPanel {
-    JPanel overview1, overview2, overview3, overview4, overview5, overview6;
+    OverviewPanel1 overview1; 
+    OverviewPanel2 overview2;
+    OverviewPanel3 overview3;
+    OverviewPanel4 overview4;
+    OverviewPanel5 overview5;
+    OverviewPanel6 overview6;
     Cards card;
     CardLayout cl;
             
@@ -24,39 +29,24 @@ public class netflixView extends JPanel {
         
    
         cl = new CardLayout();
-         setLayout(cl);
+        setLayout(cl);
          
-        overview1 = new JPanel( new BorderLayout());
+        overview1 = new OverviewPanel1();
        
-        JComboBox<String> myTitles = new JComboBox<String>();
         
-        JPanel overview1_North = new JPanel();
-        overview1_North.setBackground(Color.red);
-        overview1_North.add(new JLabel("Selecteer serie"));
-        overview1_North.add(myTitles);
-        JPanel overview1_Center = new JPanel();
-        overview1_Center.setLayout(new BoxLayout(overview1_Center, BoxLayout.PAGE_AXIS));
-        overview1_Center.add (new JLabel("Gemiddeld % bekeken per aflevering"));
-        overview1_Center.add (new JTextArea(100, 100));
-        overview1.add(overview1_North, BorderLayout.NORTH);
-        overview1.add (overview1_Center, BorderLayout.CENTER);
-        overview1.setBackground(Color.red);
-
+        overview2 = new OverviewPanel2();
 
         
-        overview2 = new JPanel();
-        overview2.setBackground(Color.blue);
-        
-        overview3 = new JPanel();
+        overview3 = new OverviewPanel3();
         overview3.setBackground(Color.yellow);
         
-         overview4 = new JPanel();
+         overview4 = new OverviewPanel4();
         overview4.setBackground(Color.CYAN);
         
-         overview5= new JPanel();
+         overview5= new OverviewPanel5();
         overview5.setBackground(Color.green);
         
-         overview6 = new JPanel();
+         overview6 = new OverviewPanel6();
         overview6.setBackground(Color.white);
         
         

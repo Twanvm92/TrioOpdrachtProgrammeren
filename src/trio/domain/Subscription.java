@@ -5,10 +5,27 @@
  */
 package trio.domain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lukab
  */
 public class Subscription {
+    int subscriptionNr;
+    String name,postalCode, street;
+    int houseNumber;
+    ArrayList <Profile> profileList;
     
+public Subscription (int subscriptionNr){
+    
+    this.subscriptionNr = subscriptionNr;
+    profileList = new ArrayList<Profile>();
+    
+}
+
+public void addProfile (Profile profile){
+    
+    profileList.add(profile);
+}
 }

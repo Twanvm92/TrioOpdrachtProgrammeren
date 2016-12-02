@@ -43,6 +43,9 @@ public controlPanel(netflixView view){
         button[i] = new JButton("Overzicht " + (i+1));
         button[i].addActionListener(new controlHandler()); 
         button[i].setActionCommand(""+ i + 1);
+        button[i].setBorderPainted(false);
+        button[i].setContentAreaFilled(false);
+        button[i].setOpaque(true);
         add (button[i]); }
  
     

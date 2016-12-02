@@ -18,14 +18,13 @@ import trio.domain.Serie;
 public class NetflixPanel extends JPanel  {
     private controlPanel panel;
     private netflixView view;
-    private Cards card;
-   
    
 public NetflixPanel() {
      view = new netflixView();
     
+     setBackground (Color.LIGHT_GRAY);
     panel = new controlPanel(view);
-    
+    panel.setBackground(Color.DARK_GRAY);
    
     setLayout (new BorderLayout());
    
@@ -33,6 +32,8 @@ public NetflixPanel() {
     add (panel, BorderLayout.WEST);
    
     add (new JLabel("Netflix Statistix"), BorderLayout.SOUTH);
+    
+    
     
   
 }
