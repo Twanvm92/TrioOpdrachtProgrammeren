@@ -22,6 +22,9 @@ public class netflixView extends JPanel {
     OverviewPanel4 overview4;
     OverviewPanel5 overview5;
     OverviewPanel6 overview6;
+    addPanel overview7;
+    changePanel overview8;
+    removePanel overview9;
     Cards card;
     CardLayout cl;
             
@@ -38,16 +41,20 @@ public class netflixView extends JPanel {
 
         
         overview3 = new OverviewPanel3();
-        overview3.setBackground(Color.yellow);
+
         
          overview4 = new OverviewPanel4();
-        overview4.setBackground(Color.CYAN);
+       
         
          overview5= new OverviewPanel5();
-        overview5.setBackground(Color.green);
+    
         
          overview6 = new OverviewPanel6();
-        overview6.setBackground(Color.white);
+         
+         overview7 = new addPanel();
+         overview8 = new changePanel();
+         overview9 = new removePanel();
+     
         
         
         
@@ -58,6 +65,10 @@ public class netflixView extends JPanel {
         add (overview4, "CARD4");
         add (overview5, "CARD5");
         add (overview6, "CARD6");
+        add (overview7, "CARD7");
+        add (overview8, "CARD8");
+        add (overview9, "CARD9");
+                
       
         
        

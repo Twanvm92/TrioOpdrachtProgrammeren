@@ -15,7 +15,8 @@ import trio.domain.Cards;
  * @author lukab
  */
 public class controlPanel extends JPanel {
-    private JButton overviewBtn_1, overviewBtn_2, overviewBtn_3, overviewBtn_4, overviewBtn_5, overviewBtn_6;
+    private JButton overviewBtn_1, overviewBtn_2, overviewBtn_3, overviewBtn_4, overviewBtn_5, overviewBtn_6,
+            addBtn, removeBtn, changeBtn;
    private JButton button[];
    private NetflixPanel panel;
    private netflixView view;
@@ -35,8 +36,31 @@ public controlPanel(netflixView view){
     button[4] = overviewBtn_5;
     button[5] = overviewBtn_6;
     
+    changeBtn = new JButton("C");
+   changeBtn.addActionListener(new controlHandler()); 
+     changeBtn.setBorderPainted(false);
+     changeBtn.setContentAreaFilled(false);
+     changeBtn.setOpaque(true);
+     
+    addBtn = new JButton ("+"); 
+     addBtn.setBorderPainted(false);
+     addBtn.setContentAreaFilled(false);
+     addBtn.setOpaque(true);
+    addBtn.addActionListener(new controlHandler()); 
+    
+          
+     addBtn.setOpaque(true);
+    removeBtn = new JButton ("- ");
+    removeBtn.addActionListener(new controlHandler()); 
+    removeBtn.setBorderPainted(false);
+     removeBtn.setContentAreaFilled(false);
+     removeBtn.setOpaque(true);
+             
+    
     
     add (Box.createRigidArea(new Dimension(0, 100)));
+    
+    
     
     for (int i= 0; i< 6; i++){
         
@@ -49,7 +73,12 @@ public controlPanel(netflixView view){
         add (button[i]); }
  
     
-
+    add (Box.createRigidArea(new Dimension(0, 100)));
+    
+    add (addBtn);
+    
+    add (removeBtn);
+    add (changeBtn);
     
     }
 
@@ -79,6 +108,19 @@ public class controlHandler implements ActionListener {
        
        if (e.getSource() == button[5]){
            cards.showCard6();
+       }
+       
+       if (e.getSource() == addBtn) {
+           cards.showCard7();
+           
+       } 
+       
+       if (e.getSource() == changeBtn) {
+           cards.showCard8();
+       }
+       
+       if (e.getSource() == removeBtn) {
+           cards.showCard9();
        }
   
         

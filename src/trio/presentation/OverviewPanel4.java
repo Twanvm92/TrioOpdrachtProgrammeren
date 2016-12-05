@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package trio.presentation;
+import java.awt.BorderLayout;
+import java.awt.Font;
 import javax.swing.*;
 
 /**
@@ -12,4 +14,28 @@ import javax.swing.*;
  */
 public class OverviewPanel4 extends JPanel{
     
+    JLabel purposeLabel;
+    
+    public OverviewPanel4(){
+       
+        setLayout( new BorderLayout(40,40));
+       
+     setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
+       
+        
+
+        purposeLabel = new JLabel("Films met langste tijdsduur voor kijkers onder de 16 jaar.");
+        purposeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        
+      
+      
+        
+  
+       setLayout(new BorderLayout(0, 10));
+       add (purposeLabel, BorderLayout.NORTH);
+        add (new JTextArea(100, 100), BorderLayout.CENTER);
+       
 }
+        
+    }
+

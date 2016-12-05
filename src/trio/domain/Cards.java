@@ -57,4 +57,21 @@ public class Cards {
        
         ((CardLayout)view.getLayout()).show(view, "CARD6");
    }
+   
+    public void showCard7() {
+       
+        ((CardLayout)view.getLayout()).show(view, "CARD7");
+   }
+    
+     public void showCard8() {
+       
+        ((CardLayout)view.getLayout()).show(view, "CARD8");
+        
+        
+   }
+     
+      public void showCard9() {
+       
+        ((CardLayout)view.getLayout()).show(view, "CARD9");
+   }
 }
