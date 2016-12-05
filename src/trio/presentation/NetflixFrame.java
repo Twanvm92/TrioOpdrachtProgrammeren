@@ -13,7 +13,7 @@ import javax.swing.*;
 public class NetflixFrame extends JFrame {
     
     public NetflixFrame() {
-        setSize ( 600, 600);
+        setSize ( 800, 600);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         setTitle ( "Netflix Statistix");
         setContentPane (new NetflixPanel());

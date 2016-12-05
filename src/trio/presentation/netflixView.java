@@ -8,6 +8,7 @@ package trio.presentation;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import javax.swing.*;
+import trio.domain.Cards;
 import trio.domain.Program;
 
 /**
@@ -15,54 +16,65 @@ import trio.domain.Program;
  * @author lukab
  */
 public class netflixView extends JPanel {
-    controlPanel panel;
-    Program program;
-    JPanel overview1, overview2, overview3, overview4, overview5, overview6;
-    final String CARD1 = "CARD1";
-    final String CARD2 = "CARD2";
-    final String CARD3 = "CARD3";
+    OverviewPanel1 overview1; 
+    OverviewPanel2 overview2;
+    OverviewPanel3 overview3;
+    OverviewPanel4 overview4;
+    OverviewPanel5 overview5;
+    OverviewPanel6 overview6;
+    addPanel overview7;
+    changePanel overview8;
+    removePanel overview9;
+    Cards card;
     CardLayout cl;
             
     public netflixView() {
         
+   
         cl = new CardLayout();
+        setLayout(cl);
+         
+        overview1 = new OverviewPanel1();
+       
+        
+        overview2 = new OverviewPanel2();
+
+        
+        overview3 = new OverviewPanel3();
+
+        
+         overview4 = new OverviewPanel4();
+       
+        
+         overview5= new OverviewPanel5();
+    
+        
+         overview6 = new OverviewPanel6();
+         
+         overview7 = new addPanel();
+         overview8 = new changePanel();
+         overview9 = new removePanel();
      
-         setLayout(cl);
-        overview1 = new JPanel();
-        overview1.setBackground(Color.red);
         
-        overview2 = new JPanel();
-        overview2.setBackground(Color.blue);
         
-        overview3 = new JPanel();
-        overview3.setBackground(Color.yellow);
         
-        add (overview1, CARD1);
-        add (overview2, CARD2);
-        add (overview3, CARD3);  
+        
+        add (overview1, "CARD1");
+        add (overview2, "CARD2");
+        add (overview3, "CARD3");  
+        add (overview4, "CARD4");
+        add (overview5, "CARD5");
+        add (overview6, "CARD6");
+        add (overview7, "CARD7");
+        add (overview8, "CARD8");
+        add (overview9, "CARD9");
+                
+      
         
        
     }
     
-    public void showCard1(){
-        
-        cl.show(this, CARD1);
-    }
-        
-   public void showCard2(){
-       
-       cl.show(this, CARD2);
-   }
-   
-   public void showCard3(){
-       
-       cl.show(this, CARD3);
-   }
-   
-   
-     public void Next(){
-       
-       cl.next(this);
-   }
+
+    
     }
 

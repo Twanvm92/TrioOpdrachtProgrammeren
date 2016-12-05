@@ -2,16 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group name="Week 3">
-            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trioopdrachtprogrammeren/TrioOpdrachtProgrammeren.java</file>
-=======
-        <group>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/controlPanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/netflixView.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixPanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/main/TrioOpdrachtProgrammeren.java</file>
->>>>>>> a16c28929aab4b71ead9c1c9b58731fb832ff2db
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/addPanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Watch.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Cards.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/removePanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Program.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel2.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/controlPanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Movie.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixPanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/main/TrioOpdrachtProgrammeren.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel4.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Profile.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Subscription.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Serie.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,10 +5,27 @@
  */
 package trio.domain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lukab
  */
 public class Profile {
     
+    String profileName;
+    ArrayList<Watch> watchList;
+    
+public Profile(String profileName){
+    this.profileName = profileName;
+    
+    watchList = new ArrayList<Watch>();
+}
+
+public void addWatch(Watch watch) {
+    
+    watchList.add(watch);
+}
+
+
 }
