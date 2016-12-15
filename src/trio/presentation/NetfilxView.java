@@ -15,20 +15,20 @@ import trio.domain.Program;
  *
  * @author lukab
  */
-public class netflixView extends JPanel {
+public class NetfilxView extends JPanel {
     OverviewPanel1 overview1; 
     OverviewPanel2 overview2;
     OverviewPanel3 overview3;
     OverviewPanel4 overview4;
     OverviewPanel5 overview5;
     OverviewPanel6 overview6;
-    addPanel overview7;
-    changePanel overview8;
-    removePanel overview9;
+    AddPanel overview7;
+    ChangePanel overview8;
+    RemovePanel overview9;
     Cards card;
     CardLayout cl;
             
-    public netflixView() {
+    public NetfilxView() {
         
    
         cl = new CardLayout();
@@ -51,9 +51,9 @@ public class netflixView extends JPanel {
         
          overview6 = new OverviewPanel6();
          
-         overview7 = new addPanel();
-         overview8 = new changePanel();
-         overview9 = new removePanel();
+         overview7 = new AddPanel();
+         overview8 = new ChangePanel();
+         overview9 = new RemovePanel();
      
         
         

@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixFrame.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/controlPanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/changePanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/domain/Profile.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/removePanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/netflixView.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/addPanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixPanel.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/ControlPanel.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/AddPanel.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/RemovePanel.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/ChangePanel.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/NetfilxView.java</file>
         </group>
     </open-files>
 </project-private>

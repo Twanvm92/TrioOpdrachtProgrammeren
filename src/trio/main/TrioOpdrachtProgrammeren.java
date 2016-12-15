@@ -6,7 +6,7 @@
 package trio.main;
 
 import trio.presentation.NetflixFrame;
-import trio.presentation.netflixView;
+import trio.presentation.NetfilxView;
 
 /**
  *

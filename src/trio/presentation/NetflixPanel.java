@@ -16,14 +16,14 @@ import trio.domain.Serie;
  * @author lukab
  */
 public class NetflixPanel extends JPanel  {
-    private controlPanel panel;
-    private netflixView view;
+    private ControlPanel panel;
+    private NetfilxView view;
    
 public NetflixPanel() {
-     view = new netflixView();
+     view = new NetfilxView();
     
      setBackground (Color.LIGHT_GRAY);
-    panel = new controlPanel(view);
+    panel = new ControlPanel(view);
     panel.setBackground(Color.DARK_GRAY);
    
     setLayout (new BorderLayout());

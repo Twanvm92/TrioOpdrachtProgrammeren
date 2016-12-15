@@ -14,15 +14,14 @@ import trio.domain.Cards;
  *
  * @author lukab
  */
-public class controlPanel extends JPanel {
+public class ControlPanel extends JPanel {
     private JButton overviewBtn_1, overviewBtn_2, overviewBtn_3, overviewBtn_4, overviewBtn_5, overviewBtn_6,
             addBtn, removeBtn, changeBtn;
-   private JButton button[];
-   private NetflixPanel panel;
-   private netflixView view;
+   private JButton button[]; 
+   private NetfilxView view;
    private Cards cards;
    
-public controlPanel(netflixView view){
+public ControlPanel(NetfilxView view){
     
     this.view = view;
     cards = new Cards(view);
