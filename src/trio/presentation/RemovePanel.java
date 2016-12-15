@@ -6,6 +6,8 @@
 package trio.presentation;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,15 +25,21 @@ public class RemovePanel extends JPanel {
      JButton okButton;
      JList movieList, serieList, profileList, accountList;
      DefaultComboBoxModel model, model1, model2, model3;
+     JLabel deleteLbl;
     
      
      
 public RemovePanel(){
     
+    
+    setLayout (new GridLayout (20, 1));
+    
     okButton = new JButton ("OK");
     okButton.addActionListener(new okHandler());
 
     deleteCB = new JComboBox<String>();
+    deleteLbl = new JLabel ("Verwijder geselecteerd object");
+    deleteLbl.setFont(new Font("Papyrus", Font.BOLD, 14));
    
     
 
@@ -72,7 +80,7 @@ public RemovePanel(){
     overviewCB.addItem("Series");
 
     
-    add (new JLabel("Verwijder een geselecteerd item"));
+    add (deleteLbl);
      add (overviewCB);
      add (deleteCB);
     
