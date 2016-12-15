@@ -9,23 +9,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import trio.domain.Cards;
+import trio.transaction.TransactionScript;
 
 /**
  *
  * @author lukab
  */
-public class controlPanel extends JPanel {
+public class ControlPanel extends JPanel {
     private JButton overviewBtn_1, overviewBtn_2, overviewBtn_3, overviewBtn_4, overviewBtn_5, overviewBtn_6,
             addBtn, removeBtn, changeBtn;
-   private JButton button[];
-   private NetflixPanel panel;
-   private netflixView view;
+   private JButton button[]; 
+   private NetfilxView view;
    private Cards cards;
+   private TransactionScript script;
    
-public controlPanel(netflixView view){
+public ControlPanel(NetfilxView view){
     
     this.view = view;
     cards = new Cards(view);
+    script = new TransactionScript();
     
     setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     button = new JButton[6];
@@ -86,11 +88,13 @@ public class controlHandler implements ActionListener {
         
        if (e.getSource() == button[0])  {
            cards.showCard1();
+           script.dbconnection();
        
         }
        
        if (e.getSource() == button[1]) {
            cards.showCard2();
+           script.dbconnection();
        }
        
        if (e.getSource() == button[2]) {

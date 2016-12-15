@@ -11,6 +11,6 @@ import javax.swing.JPanel;
  *
  * @author lukab
  */
-public class addPanel extends JPanel{
+public class AddPanel extends JPanel{
     
 }

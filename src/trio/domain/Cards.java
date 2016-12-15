@@ -9,18 +9,18 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import trio.presentation.netflixView;
+import trio.presentation.NetfilxView;
 
 /**
  *
  * @author lukab
  */
 public class Cards {
-    private netflixView view;
+    private NetfilxView view;
 
 
             
-    public Cards(netflixView view){
+    public Cards(NetfilxView view){
         this.view = view; 
    
        
