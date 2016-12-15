@@ -22,14 +22,6 @@ public class TrioOpdrachtProgrammeren {
     public static void main(String[] args) {
         
         NetflixFrame frame = new NetflixFrame();
-  
-<<<<<<< HEAD
-        TransactionScript t = new TransactionScript3();
-        
-=======
->>>>>>> refs/remotes/origin/master
-       
-   
         
     }
     

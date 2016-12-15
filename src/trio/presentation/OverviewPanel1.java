@@ -52,10 +52,14 @@ public class OverviewPanel1 extends JPanel {
         add(overview1_North, BorderLayout.NORTH);
         add (overview1_Center, BorderLayout.CENTER);
 }
-   public class selectHandler implements ActionListener {
+    
+   
+   public class selectHandler implements ActionListener { // listens to actions that have been performed
        @Override
        public void actionPerformed(ActionEvent e) {
-           
+           if (myTitles.getItemAt(myTitles.getSelectedIndex()) == "House of Cards") {
+                
+             }
        }
    }
     

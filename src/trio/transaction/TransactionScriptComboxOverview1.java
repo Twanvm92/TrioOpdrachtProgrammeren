@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  * @author Mika Krooswijk
  * @see TransactionScript
  */
-public class TransactionScript1 extends TransactionScript{
+public class TransactionScriptComboxOverview1 extends TransactionScript{
     private String serie;
     JPanel panel;
     ArrayList<TransactionResult> resultArray;
@@ -32,7 +32,7 @@ public class TransactionScript1 extends TransactionScript{
      * @param panel dit is het paneel waar de error message van een exception op verschijnt.
      */
     // Contructor initialiseert
-    public TransactionScript1(String serie, JPanel panel){
+    public TransactionScriptComboxOverview1(String serie, JPanel panel){
         this.serie = serie;
         this.panel = panel;
         resultArray = new ArrayList<>();
@@ -42,12 +42,7 @@ public class TransactionScript1 extends TransactionScript{
     public ArrayList query(){
         
         // vult een string met query gegevens
-        String query = " SELECT programma.titel, aflevering.volgnummer, AVG(watch.percentage) FROM watch" +
-" 	INNER JOIN programma ON watch.programmaid = programma.programmaid" +
-" 	INNER JOIN aflevering ON programma.programmaid = aflevering.programmaid" +
-" 	INNER JOIN serie ON aflevering.titelserie = serie.titel" +
-" 	WHERE serie.titel '" + serie + "' " +
-" 	GROUP BY watch.programmaid;";
+        String query = " SELECT titel FROM serie ORDER BY titel;";
         
         
         

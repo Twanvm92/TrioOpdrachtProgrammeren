@@ -9,7 +9,7 @@ package trio.transaction;
  *
  * @author Mika Krooswijk
  */
-public class TransactionResult3 {
+public class TransactionResult3{
     String titel;
  
     
