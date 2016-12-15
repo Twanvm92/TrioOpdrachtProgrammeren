@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * <code>TransactionScript</code> is een super klasse die een database connection verzorgt.
@@ -51,7 +52,7 @@ abstract public class TransactionScript {
     }
     
     
-    abstract public void query();
+    abstract public ArrayList query();
         
 
 }

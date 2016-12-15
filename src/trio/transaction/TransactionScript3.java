@@ -34,13 +34,13 @@ public class TransactionScript3 extends TransactionScript{
     public TransactionScript3(String abonnement, JPanel panel){
         this.abonnement = abonnement;
         this.panel = panel;
-        resultArray = new ArrayList<TransactionResult3>();
+        resultArray = new ArrayList();
     }
     /**
      * @see TransactionScript gebruikt database connection methode van deze klasse
      */
     @Override
-    public void query(){
+    public ArrayList query(){
         
         // vult een string met query gegevens
         String query = "SELECT DISTINCT programma.titel, programma.duur FROM abonnement\n" +
@@ -52,19 +52,15 @@ public class TransactionScript3 extends TransactionScript{
 " 	ORDER BY programma.titel;";
         
   
-      try{
+        try{
             Connection connection = this.dbconnection(panel); // maak connectie met de database, geeft panel mee voor error-message
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query); // query wordt uitgevoerd
             
             
-<<<<<<< HEAD
             while(result.next()){
                 TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getNString("programma.duur"));
-=======
-            while(result.next()){ // vul transactionresult class met resultaten van de query
-                TransactionResult3 r = new TransactionResult3(result.getString("programma.titel"));
->>>>>>> refs/remotes/origin/master
+
                 resultArray.add(r);
             }
             
@@ -73,13 +69,20 @@ public class TransactionScript3 extends TransactionScript{
             }
             
             closeConnection(connection, panel); // sluit de connectie met de database
-            
-      }catch (SQLException exeption) { // vang exception op wanneer connectie met database niet gemaakt kan worden
+            return resultArray;
+        }catch (SQLException exeption) { // vang exception op wanneer connectie met database niet gemaakt kan worden
           JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
-      }
-      catch (NullPointerException npe) { // vang exception op wanneer connectie null is
+        }
+        catch (NullPointerException npe) { // vang exception op wanneer connectie null is
           
-      }
+        }
+  
+        return resultArray;
+      
+    }
+    
+    public void testMethod() {
+        System.out.println("Dit is een test");
     }
 }

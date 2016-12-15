@@ -30,7 +30,7 @@ public class TransactionScript4 extends TransactionScript{
     }
     
     @Override
-    public void query(){
+    public ArrayList query(){
         
         Connection connection = this.dbconnection(panel);
         String query = "SELECT programma.titel, film.leeftijdsIndicatie, programma.duur\n" + "FROM film\n" +"JOIN programma\n" +
@@ -55,14 +55,16 @@ public class TransactionScript4 extends TransactionScript{
              
             closeConnection(connection, panel);
             
+           
             
       }
       
       
+            
       catch (SQLException exeption) {
             System.out.println("error");
       }
-      
+       return resultArray;
     }
     
     

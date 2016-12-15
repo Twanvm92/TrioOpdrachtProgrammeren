@@ -29,7 +29,7 @@ public class TransactionScript5 extends TransactionScript{
 
     
     @Override
-    public void query(){
+    public ArrayList query(){
         
         Connection connection = this.dbconnection(panel);
         String query = "SELECT abbonement.naam FROM abonnement\n" +
@@ -63,6 +63,8 @@ public class TransactionScript5 extends TransactionScript{
       catch (SQLException exeption) {
             System.out.println("error");
       }
+      
+      return resultArray;
       
     }
     

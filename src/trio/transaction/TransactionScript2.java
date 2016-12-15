@@ -10,36 +10,45 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Mika Krooswijk
  */
-public class TransactionScript2 {
+public class TransactionScript2 extends TransactionScript{
+    private ArrayList<TransactionResult> resultArray;
+    private JPanel panel;
     
-    
-    public void query(int acountID, String serie) throws SQLException{
+    public TransactionScript2(JPanel panel) {
+        this.panel = panel;
+        resultArray = new ArrayList();
+    }
+    public ArrayList query() {
         
-        Connection  connection;
+  
+        
         String query = "SELECT programma.titel, AVG(watch.percentage) FROM watch\n" +
 "	JOIN programma ON programma.ProgrammaID=watch.ProgrammaID\n" +
-"	WHERE watch.AbonnementNr=" + acountID +" AND programma.titel=\"" + serie + "\"\n" +
+"	WHERE watch.AbonnementNr=" + //acountID +" AND programma.titel=\"" + serie + "\"\n" +
 "	GROUP BY programma.titel";
         
-        connection = DriverManager.getConnection("jdbc:mysql://localhost/netflix", "duo1", "duo");
-        Statement statement = connection.createStatement();
         
       try{
+            Connection connection = this.dbconnection(panel); // maak connectie met de database, geeft panel mee voor error-message
+            Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
-            
             if(result.next()){
                 
             }
+            connection.close();
       }catch (SQLException exeption) {
             System.out.println("error");
       }finally{
-          connection.close();
+          
       }
+      return resultArray;
     }
 
 }
