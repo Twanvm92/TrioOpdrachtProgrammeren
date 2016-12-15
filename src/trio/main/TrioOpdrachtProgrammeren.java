@@ -9,6 +9,7 @@ import trio.presentation.NetflixFrame;
 import trio.presentation.NetfilxView;
 import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript3;
+import trio.transaction.TransactionScript4;
 
 /**
  *
@@ -23,11 +24,7 @@ public class TrioOpdrachtProgrammeren {
         
         NetflixFrame frame = new NetflixFrame();
   
-<<<<<<< HEAD
-        TransactionScript t = new TransactionScript3();
-        
-=======
->>>>>>> refs/remotes/origin/master
+       
        
    
         

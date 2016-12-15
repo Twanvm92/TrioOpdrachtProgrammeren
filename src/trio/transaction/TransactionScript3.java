@@ -47,7 +47,7 @@ public class TransactionScript3 extends TransactionScript{
             
             
             while(result.next()){
-                TransactionResult3 r = new TransactionResult3(result.getString("programma.titel"));
+                TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getNString("programma.duur"));
                 resultArray.add(r);
             }
             

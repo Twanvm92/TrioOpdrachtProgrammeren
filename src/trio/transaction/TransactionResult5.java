@@ -7,16 +7,15 @@ package trio.transaction;
 
 /**
  *
- * @author Mika Krooswijk
+ * @author lukab
  */
-public class TransactionResult3 {
-    String titel;
-    String duration;
- 
+public class TransactionResult5  {
+     String title;
     
-    public TransactionResult3(String title, String duration){
-        this.titel = titel;
-        this.duration = duration;
+    
+    public TransactionResult5 (String title){
+        this.title = title;
+      
        
     }
     
@@ -24,8 +23,9 @@ public class TransactionResult3 {
     public String toString(){
           
         
-        return titel;
+      String status =  String.format("Account naam: %20s", title);
         
+        return status;
         
     }
 }
