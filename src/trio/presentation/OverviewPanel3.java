@@ -52,16 +52,9 @@ public class OverviewPanel3 extends JPanel {
 }
     class action implements ActionListener{
             public void actionPerformed(ActionEvent e){
-<<<<<<< HEAD
-                TransactionScript3 t = new TransactionScript3();
-                
-               
-                t.query("" + myAccounts.getSelectedItem());
-                     System.out.print(t);    
-=======
+
                 TransactionScript t = new TransactionScript3("" + myAccounts.getSelectedItem(), OverviewPanel3.this);
                 t.query();
->>>>>>> refs/remotes/origin/master
             }
         } 
 }
