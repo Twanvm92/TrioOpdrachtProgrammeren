@@ -11,20 +11,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Mika Krooswijk
  */
 public class TransactionScript3 extends TransactionScript{
-    
+    private String account;
+    private JPanel panel;
     ArrayList<TransactionResult3> resultArray;
     
-    public TransactionScript3(){
+    public TransactionScript3(String account, JPanel panel){
+        this.account = account;
+        this.panel = panel;
         resultArray = new ArrayList<TransactionResult3>();
     }
-    public void query(String account){
-        
+    @Override
+    public void query(){
+        Connection connection = this.dbconnection(panel);
         
         String query = "SELECT DISTINCT programma.titel, programma.duur FROM abonnement\n" +
 " 	INNER JOIN profiel ON abonnement.abonnementNr = profiel.abonnementNr\n" +
@@ -36,8 +41,7 @@ public class TransactionScript3 extends TransactionScript{
         
   
       try{
-          
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/netflix", "netflix", "netflix");
+            
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
             
@@ -51,7 +55,7 @@ public class TransactionScript3 extends TransactionScript{
                 System.out.println(r);
             }
             
-            connection.close();
+            closeConnection(connection, panel);
             
       }catch (SQLException exeption) {
             exeption.printStackTrace();

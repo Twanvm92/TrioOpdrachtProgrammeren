@@ -8,6 +8,8 @@ package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -50,5 +52,11 @@ public class OverviewPanel1 extends JPanel {
         add(overview1_North, BorderLayout.NORTH);
         add (overview1_Center, BorderLayout.CENTER);
 }
+   public class selectHandler implements ActionListener {
+       @Override
+       public void actionPerformed(ActionEvent e) {
+           
+       }
+   }
     
 }

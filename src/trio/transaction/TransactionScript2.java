@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author Mika Krooswijk
  */
 public class TransactionScript2 {
-    public class TransactionScript1 extends TransactionScript{
+    
     
     public void query(int acountID, String serie) throws SQLException{
         
@@ -41,5 +41,5 @@ public class TransactionScript2 {
           connection.close();
       }
     }
-}
+
 }

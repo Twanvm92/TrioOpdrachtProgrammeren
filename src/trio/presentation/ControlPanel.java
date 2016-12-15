@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import trio.domain.Cards;
+import trio.transaction.TransactionScript;
 
 /**
  *
