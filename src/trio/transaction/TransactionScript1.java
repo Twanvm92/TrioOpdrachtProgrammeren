@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class TransactionScript1 extends TransactionScript{
     
-    public void query(String serie) throws SQLException{
+    public void query(String serie){
         
         Connection  connection;
         String query = " SELECT programma.titel, aflevering.volgnummer, AVG(watch.percentage) FROM watch" +
@@ -28,19 +28,19 @@ public class TransactionScript1 extends TransactionScript{
 " 	WHERE serie.titel '" + serie + "' " +
 " 	GROUP BY watch.programmaid;";
         
-        connection = DriverManager.getConnection("jdbc:mysql://localhost/netflix", "duo1", "duo");
-        Statement statement = connection.createStatement();
+        
         
       try{
-            ResultSet result = statement.executeQuery(query);
             
-            if(result.next()){
+          connection = DriverManager.getConnection("jdbc:mysql://localhost/netflix", "duo1", "duo");
+          Statement statement = connection.createStatement();
+          ResultSet result = statement.executeQuery(query);
+            
+            while (result.next()){
                 
             }
       }catch (SQLException exeption) {
             System.out.println("error");
-      }finally{
-          connection.close();
       }
     }
 }

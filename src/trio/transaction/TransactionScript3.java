@@ -17,13 +17,14 @@ import java.util.ArrayList;
  * @author Mika Krooswijk
  */
 public class TransactionScript3 extends TransactionScript{
-    
+    String account;
     ArrayList<TransactionResult3> resultArray;
     
-    public TransactionScript3(){
+    public TransactionScript3(String account){
         resultArray = new ArrayList<TransactionResult3>();
+        this.account = account;
     }
-    public void query(String account){
+    public void query(){
         
         
         String query = "SELECT DISTINCT programma.titel, programma.duur FROM abonnement\n" +

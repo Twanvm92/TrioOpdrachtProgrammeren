@@ -13,5 +13,7 @@ import java.sql.SQLException;
  */
 public class TransactionScript {
     
-   
+   public void query(){
+       
+   }
 }
