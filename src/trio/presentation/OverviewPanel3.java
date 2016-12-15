@@ -6,8 +6,10 @@
 package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript3;
@@ -53,8 +55,10 @@ public class OverviewPanel3 extends JPanel {
     class action implements ActionListener{
             public void actionPerformed(ActionEvent e){
 
-                TransactionScript t = new TransactionScript3("" + myAccounts.getSelectedItem(), OverviewPanel3.this);
-                t.query();
+                TransactionScript3 t = new TransactionScript3("" + myAccounts.getSelectedItem(), OverviewPanel3.this);
+                ArrayList<String> resultArray = t.query();
+                
+                
             }
         } 
 }

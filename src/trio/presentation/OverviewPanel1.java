@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
+import trio.transaction.TransactionResultComboxOverview1;
+import trio.transaction.TransactionScriptComboxOverview1;
 
 /**
  *
@@ -25,16 +27,21 @@ public class OverviewPanel1 extends JPanel {
     
     public OverviewPanel1(){
         
-        
+        // declare and initialize new Transitionscript
+        // put results of the query() method in an arraylist.
+        TransactionScriptComboxOverview1 script = new TransactionScriptComboxOverview1(OverviewPanel1.this);
+        ArrayList<TransactionResultComboxOverview1> resultArray = script.query();
     
         setLayout( new BorderLayout(40,40));
        
-     setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
+        setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
         myTitles = new JComboBox<String>();
-      
-        myTitles.addItem("House of Cards");
-        myTitles.addItem("Breaking Bad");
-        myTitles.addItem("Dexter");
+        
+        // add results from resultArray to JCombobox
+        for (int x = 0; x < resultArray.size(); x++ ) {
+            TransactionResultComboxOverview1 result = resultArray.get(x);
+            myTitles.addItem(result.getTitel());
+        }
         
         titleLabel = new JLabel("Selecteer serie  ");
         titleLabel.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -58,6 +65,8 @@ public class OverviewPanel1 extends JPanel {
        @Override
        public void actionPerformed(ActionEvent e) {
            if (myTitles.getItemAt(myTitles.getSelectedIndex()) == "House of Cards") {
+                
+                
                 
              }
        }

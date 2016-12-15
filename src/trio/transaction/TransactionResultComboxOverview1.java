@@ -12,5 +12,12 @@ package trio.transaction;
 public class TransactionResultComboxOverview1 {
     private String titelSerie;
     
+    public TransactionResultComboxOverview1(String titelSerie) {
+        this.titelSerie = titelSerie;
+    }
+    
+    public String getTitel() {
+        return titelSerie;
+    }
     
 }

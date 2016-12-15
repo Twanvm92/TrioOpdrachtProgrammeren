@@ -80,4 +80,8 @@ public class TransactionScript3 extends TransactionScript{
         return resultArray;
       
     }
+    
+    public void testMethod() {
+        System.out.println("Dit is een test");
+    }
 }

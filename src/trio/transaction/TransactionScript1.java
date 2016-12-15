@@ -41,6 +41,7 @@ public class TransactionScript1 extends TransactionScript{
     @Override
     public ArrayList query(){
         
+        
         // vult een string met query gegevens
         String query = " SELECT programma.titel, aflevering.volgnummer, AVG(watch.percentage) FROM watch" +
 " 	INNER JOIN programma ON watch.programmaid = programma.programmaid" +
