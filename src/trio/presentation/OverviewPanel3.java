@@ -6,7 +6,11 @@
 package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
+import trio.transaction.TransactionScript;
+import trio.transaction.TransactionScript3;
 /**
  *
  * @author lukab
@@ -23,9 +27,10 @@ public class OverviewPanel3 extends JPanel {
      setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
         myAccounts = new JComboBox<String>();
       
-        myAccounts.addItem("Account1");
+        myAccounts.addItem("F. de Kat");
         myAccounts.addItem("Account2");
         myAccounts.addItem("Account3");
+        myAccounts.addActionListener(new action());
         
         titleLabel = new JLabel("Selecteer account ");
         titleLabel.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -42,6 +47,13 @@ public class OverviewPanel3 extends JPanel {
         overview1_Center.add (new JTextArea(100, 100), BorderLayout.CENTER);
         add(overview1_North, BorderLayout.NORTH);
         add (overview1_Center, BorderLayout.CENTER);
+        
+        
 }
-
+    class action implements ActionListener{
+            public void actionPerformed(ActionEvent e){
+                TransactionScript t = new TransactionScript3("" + myAccounts.getSelectedItem(), OverviewPanel3.this);
+                t.query();
+            }
+        } 
 }

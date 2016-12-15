@@ -7,6 +7,8 @@ package trio.main;
 
 import trio.presentation.NetflixFrame;
 import trio.presentation.NetfilxView;
+import trio.transaction.TransactionScript;
+import trio.transaction.TransactionScript3;
 
 /**
  *
@@ -21,7 +23,9 @@ public class TrioOpdrachtProgrammeren {
         
         NetflixFrame frame = new NetflixFrame();
   
-
+       
+   
+        
     }
     
 }
