@@ -5,98 +5,113 @@
  */
 package trio.presentation;
 
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author lukab
  */
 public class ChangePanel extends JPanel {
-     JComboBox<String> overviewCB;
-     JComboBox<String> deleteCB;
-     ArrayList<String> movieArray, profileArray, serieArray, accountArray; //dadelijk uit klasse movie
-     JButton okButton;
-     JList movieList, serieList, profileList, accountList;
-     DefaultComboBoxModel model, model1, model2, model3;
+    JTextField birthdateField, fkaccountNrField,pkaccountNrField, accountNameField, accountStreetField, 
+            townField, houseNrField, postalcodeField, viewingHabitsField;
+    JLabel profileNameLbl, birthdateLbl, fkaccountNrLbl, pkaccountNrLbl, accountNameLbl, accountStreetLbl, townLbl, houseNrLbl,
+            postalcodeLbl, programIdLbl, viewingHabitsLbl, viewinghabits, accounts, profiles;
+    JButton addProfileBtn, addAccountBtn, addViewingHabitsBtn;
+    JComboBox programIdCB, profileNameCB, fkaccountNrCB, profileName1CB, pkaccountNrCB;
     
-     
-     
 public ChangePanel(){
     
-    okButton = new JButton ("OK");
-    //okButton.addActionListener(new okHandler());
-
-    overviewCB = new JComboBox<String>();
-    overviewCB.addActionListener(new selectHandler());
-    overviewCB.addItem("Accounts");
-    overviewCB.addItem("Profielen");
-    overviewCB.addItem("Films");
-    overviewCB.addItem("Series");
+    setLayout (new GridLayout (20, 2));
     
-    deleteCB = new JComboBox<String>();
-
-    movieArray = new ArrayList<String>();
-    movieArray.add("Prisoners");
-    movieArray.add("Harry Potter");
-    movieArray.add("movie"); //later aanpassen
-   
-   
-    profileArray = new ArrayList<String>();
-    profileArray.add("Profile1");
-    profileArray.add("Profile2");
-    profileArray.add("Profile3");
+   viewinghabits = new JLabel ("Kijkgedrag");
+    viewinghabits.setFont(new Font("Papyrus", Font.BOLD, 14));
+    accounts = new JLabel ("Abonnementen");
+    accounts.setFont(new Font("Papyrus", Font.BOLD, 14));
+    profiles = new JLabel ("Profielen");
+    profiles.setFont(new Font("Papyrus", Font.BOLD, 14));
     
+    profileNameLbl = new JLabel ("Profielnaam: ");
+    birthdateLbl = new JLabel ("Geboortedatum: ");
+    fkaccountNrLbl = new JLabel ("Abonneenummer: ");
     
-    serieArray = new ArrayList<String>();
-    serieArray.add("Breaking Bad");
-    serieArray.add("Dexter");
-    serieArray.add("Hannibal");
+    pkaccountNrLbl = new JLabel ("Abonneenummer: ");
+    accountNameLbl = new JLabel ("Abonnee naam: ");
+    accountStreetLbl = new JLabel ("Straat: ");
+    townLbl = new JLabel ("Plaats: ");
+    houseNrLbl = new JLabel ("Huisnummer: ");
+    postalcodeLbl = new JLabel ("Postcode: ");
     
-
+    viewingHabitsLbl = new JLabel ("Percentage ");
+    viewingHabitsField = new JTextField (20);
+    
+    profileName1CB = new JComboBox();
+    profileNameCB = new JComboBox();
+    fkaccountNrCB = new JComboBox();
+    pkaccountNrCB = new JComboBox();
+    programIdLbl = new JLabel ("Programma ID"); //Combobox met programma's?'
+    programIdCB = new JComboBox();
+    
   
-    accountArray = new ArrayList<String>();
-    accountArray.add("Account1");
-    accountArray.add("Account2");
-    accountArray.add("Account3");
-    
-    model = new DefaultComboBoxModel( accountArray.toArray());
-    model1 = new DefaultComboBoxModel ( profileArray.toArray());
-    model2 = new DefaultComboBoxModel ( serieArray.toArray());
-    model3 = new DefaultComboBoxModel ( movieArray.toArray());
+    birthdateField = new JTextField (20);
 
     
-    add (overviewCB);
-    add (deleteCB);
-    add (okButton);
-   
+    accountNameField = new JTextField (20);
+    accountStreetField = new JTextField (20);
+    townField = new JTextField (20);
+    houseNrField = new JTextField (20);
+    postalcodeField = new JTextField (20);
+    
+    addProfileBtn = new JButton ("Verander profiel");
+    addAccountBtn = new JButton ("Verander account");
+    addViewingHabitsBtn = new JButton ("Verander kijkgedrag");
+    
+    add (profiles);
+    add (new JLabel ("")); 
+    add (profileNameLbl);
+    add (profileName1CB);
+    add (birthdateLbl);
+    add (birthdateField);
+    add (fkaccountNrLbl);
+    add (fkaccountNrCB);
+     add (addProfileBtn);
+      add (new JLabel (""));
+      
+     add (accounts);
+     add (new JLabel (""));
+     add (pkaccountNrLbl);
+     add (pkaccountNrCB);
+     add (accountNameLbl);
+     add (accountNameField);
+     add (accountStreetLbl);
+     add (accountStreetField);
+     add (townLbl);
+     add (townField);
+     add (houseNrLbl);
+     add (houseNrField);
+     add (postalcodeLbl);
+     add (postalcodeField);
+     add (addAccountBtn);
+       add (new JLabel (""));
+     
+     add (viewinghabits);
+     add (new JLabel(""));
+     add (new JLabel ("Profiel naam"));
+     add (profileNameCB);
+     add (new JLabel ("Programma ID: "));
+     add (programIdCB);
+     add (viewingHabitsLbl);
+     add (viewingHabitsField);
+     add (addViewingHabitsBtn);
 }
-
-    public class selectHandler implements ActionListener {
-      public void actionPerformed(ActionEvent e) {
-         
-        
-           if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Films") {
-                deleteCB.setModel(model3);
-             }
-           
-             if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Series") {
-                deleteCB.setModel(model2);
-             }
-             
-               if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Profielen") {
-                deleteCB.setModel(model1);
-                
-                 if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Accounts") {
-                deleteCB.setModel(model);
-             }
-             }
-      }
-    }
 }
