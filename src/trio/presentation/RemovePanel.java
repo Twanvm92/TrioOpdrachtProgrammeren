@@ -31,14 +31,9 @@ public RemovePanel(){
     okButton = new JButton ("OK");
     okButton.addActionListener(new okHandler());
 
-    overviewCB = new JComboBox<String>();
-    overviewCB.addActionListener(new selectHandler());
-    overviewCB.addItem("Accounts");
-    overviewCB.addItem("Profielen");
-    overviewCB.addItem("Films");
-    overviewCB.addItem("Series");
-    
     deleteCB = new JComboBox<String>();
+   
+    
 
     movieArray = new ArrayList<String>();
     movieArray.add("Prisoners");
@@ -68,10 +63,20 @@ public RemovePanel(){
     model1 = new DefaultComboBoxModel ( profileArray.toArray());
     model2 = new DefaultComboBoxModel ( serieArray.toArray());
     model3 = new DefaultComboBoxModel ( movieArray.toArray());
+    
+     overviewCB = new JComboBox<String>();
+    overviewCB.addActionListener(new selectHandler());
+    overviewCB.addItem("Accounts");
+    overviewCB.addItem("Profielen");
+    overviewCB.addItem("Films");
+    overviewCB.addItem("Series");
 
     
-    add (overviewCB);
-    add (deleteCB);
+    add (new JLabel("Verwijder een geselecteerd item"));
+     add (overviewCB);
+     add (deleteCB);
+    
+  
     add (okButton);
    
 }
@@ -79,7 +84,10 @@ public RemovePanel(){
     public class selectHandler implements ActionListener {
       public void actionPerformed(ActionEvent e) {
          
-        
+         if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Accounts") {
+                deleteCB.setModel(model);
+             }
+         
            if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Films") {
                 deleteCB.setModel(model3);
              }
@@ -90,13 +98,12 @@ public RemovePanel(){
              
                if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Profielen") {
                 deleteCB.setModel(model1);
+               }
+               
                 
-                 if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Accounts") {
-                deleteCB.setModel(model);
-             }
              }
       }
-    }
+    
 
     public class okHandler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
