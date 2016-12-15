@@ -21,13 +21,11 @@ public class ControlPanel extends JPanel {
    private JButton button[]; 
    private NetfilxView view;
    private Cards cards;
-   private TransactionScript script;
    
 public ControlPanel(NetfilxView view){
     
     this.view = view;
     cards = new Cards(view);
-    script = new TransactionScript();
     
     setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     button = new JButton[6];
@@ -88,13 +86,11 @@ public class controlHandler implements ActionListener {
         
        if (e.getSource() == button[0])  {
            cards.showCard1();
-           script.dbconnection();
        
         }
        
        if (e.getSource() == button[1]) {
            cards.showCard2();
-           script.dbconnection();
        }
        
        if (e.getSource() == button[2]) {
