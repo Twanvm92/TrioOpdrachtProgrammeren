@@ -10,17 +10,31 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 /**
  *
  * @author Mika Krooswijk
  */
 public class TransactionScript1 extends TransactionScript{
+    private String serie;
+    JPanel panel;
+    ArrayList<TransactionResult> resultArray;
     
-    public void query(String serie){
+
+    public TransactionScript1(String serie, JPanel panel){
+        this.serie = serie;
+        this.panel = panel;
+        resultArray = new ArrayList<>();
+    }
+    
+    @Override
+    public void query(){
+
         
-        Connection  connection;
+        Connection connection = this.dbconnection(panel);
         String query = " SELECT programma.titel, aflevering.volgnummer, AVG(watch.percentage) FROM watch" +
 " 	INNER JOIN programma ON watch.programmaid = programma.programmaid" +
 " 	INNER JOIN aflevering ON programma.programmaid = aflevering.programmaid" +
@@ -31,16 +45,20 @@ public class TransactionScript1 extends TransactionScript{
         
         
       try{
+
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(query);
             
-          connection = DriverManager.getConnection("jdbc:mysql://localhost/netflix", "duo1", "duo");
-          Statement statement = connection.createStatement();
-          ResultSet result = statement.executeQuery(query);
-            
-            while (result.next()){
+            while(result.next()){
+
                 
             }
+            closeConnection(connection, panel);
       }catch (SQLException exeption) {
             System.out.println("error");
       }
+      
     }
+
+    
 }
