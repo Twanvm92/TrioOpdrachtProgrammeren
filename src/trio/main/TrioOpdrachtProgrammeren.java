@@ -23,6 +23,11 @@ public class TrioOpdrachtProgrammeren {
         
         NetflixFrame frame = new NetflixFrame();
   
+<<<<<<< HEAD
+        TransactionScript t = new TransactionScript3();
+        
+=======
+>>>>>>> refs/remotes/origin/master
        
    
         
