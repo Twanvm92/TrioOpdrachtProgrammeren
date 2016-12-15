@@ -5,10 +5,13 @@
  */
 package trio.transaction;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author lukab
  */
 public class TransactionScript {
     
+   
 }

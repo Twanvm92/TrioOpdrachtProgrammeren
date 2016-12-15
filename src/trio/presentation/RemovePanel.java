@@ -72,7 +72,7 @@ public RemovePanel(){
     model2 = new DefaultComboBoxModel ( serieArray.toArray());
     model3 = new DefaultComboBoxModel ( movieArray.toArray());
     
-     overviewCB = new JComboBox<String>();
+    overviewCB = new JComboBox<String>();
     overviewCB.addActionListener(new selectHandler());
     overviewCB.addItem("Accounts");
     overviewCB.addItem("Profielen");
