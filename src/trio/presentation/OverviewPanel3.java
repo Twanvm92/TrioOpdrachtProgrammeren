@@ -55,7 +55,10 @@ public class OverviewPanel3 extends JPanel {
 
                 TransactionScript t = new TransactionScript3("" + myAccounts.getSelectedItem(), OverviewPanel3.this);
                 t.query();
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
             }
         } 
 }
