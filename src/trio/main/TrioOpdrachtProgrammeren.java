@@ -24,7 +24,8 @@ public class TrioOpdrachtProgrammeren {
         NetflixFrame frame = new NetflixFrame();
   
         TransactionScript t = new TransactionScript3();
-        t.query("F. de Kat");
+        
+       
    
         
     }
