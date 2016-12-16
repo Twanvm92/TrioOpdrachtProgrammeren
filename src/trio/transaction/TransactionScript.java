@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * <code>TransactionScript</code> is een super klasse die een database connection verzorgt.
@@ -47,14 +48,17 @@ abstract public class TransactionScript {
             connection.close();  
         }
         catch (SQLException sqle) {
-            JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Database connectie kon niet verboken worden", "Fout", JOptionPane.ERROR_MESSAGE);
         }
     }
     
     
-    abstract public void query();
+
     
-    public abstract String display();
+    
+ 
+    abstract public ArrayList query();
+
         
 
 

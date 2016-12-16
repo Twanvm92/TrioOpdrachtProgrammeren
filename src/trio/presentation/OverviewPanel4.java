@@ -7,6 +7,8 @@ package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.*;
+import trio.transaction.TransactionScript;
+import trio.transaction.TransactionScript4;
 
 /**
  *
@@ -34,6 +36,9 @@ public class OverviewPanel4 extends JPanel{
        setLayout(new BorderLayout(0, 10));
        add (purposeLabel, BorderLayout.NORTH);
         add (new JTextArea(100, 100), BorderLayout.CENTER);
+        
+         TransactionScript t = new TransactionScript4();
+                t.query();
        
 }
         

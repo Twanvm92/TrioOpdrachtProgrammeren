@@ -6,7 +6,12 @@
 package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
+import trio.transaction.TransactionScript;
+import trio.transaction.TransactionScript3;
+import trio.transaction.TransactionScript4;
 /**
  *
  * @author lukab
@@ -30,5 +35,9 @@ public class OverviewPanel5 extends JPanel{
        add (purposeLabel, BorderLayout.NORTH);
         add (new JTextArea(100, 100), BorderLayout.CENTER);
         
+       
+
     }
+    
+    
 }

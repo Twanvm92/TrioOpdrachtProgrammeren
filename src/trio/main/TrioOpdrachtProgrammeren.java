@@ -9,6 +9,7 @@ import trio.presentation.NetflixFrame;
 import trio.presentation.NetfilxView;
 import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript3;
+import trio.transaction.TransactionScript4;
 
 /**
  *
@@ -22,12 +23,7 @@ public class TrioOpdrachtProgrammeren {
     public static void main(String[] args) {
         
         NetflixFrame frame = new NetflixFrame();
-  
 
-
-       
-
-   
         
     }
     
