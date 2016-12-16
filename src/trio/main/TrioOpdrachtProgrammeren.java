@@ -24,6 +24,7 @@ public class TrioOpdrachtProgrammeren {
         NetflixFrame frame = new NetflixFrame();
   
 
+
        
 
    
