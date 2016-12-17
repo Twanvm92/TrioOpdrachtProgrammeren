@@ -5,23 +5,18 @@
  */
 package trio.transaction;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 /**
- * <code>TransactionScript1</code> enherits from abstract class <code>TransactionScript</code>
- * Executes a query and saves the results in <code>TransactionResult1</code>
+ * <code>TransactionScript3</code> enherits from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResult3</code>
  * @see TransactionResult1
  * @author Mika Krooswijk
  * @see TransactionScript
  */
-public class TransactionScriptComboxOverview1 extends TransactionScript{
+public class TransactionScriptComboxOverview3 extends TransactionScript{
     private String serie;
     JPanel panel;
     ArrayList<TransactionResultComboxOverview1> resultArray;
@@ -32,7 +27,7 @@ public class TransactionScriptComboxOverview1 extends TransactionScript{
      * @param panel The panel where the error message from an SQLException shows ons
      */
     // Contructor initialises
-    public TransactionScriptComboxOverview1(JPanel panel){
+    public TransactionScriptComboxOverview3(JPanel panel){
         this.panel = panel;
         resultArray = new ArrayList<>();
     }
@@ -41,7 +36,7 @@ public class TransactionScriptComboxOverview1 extends TransactionScript{
     public ArrayList query(){
         
         // fill a string with query data
-        String query = "SELECT titel FROM serie ORDER BY titel;";
+        String query = "SELECT naam FROM abonnement ORDER BY naam;";
         
         
         
@@ -51,7 +46,7 @@ public class TransactionScriptComboxOverview1 extends TransactionScript{
             ResultSet result = statement.executeQuery(query); // query gets executed
             
             while(result.next()){ // fill transactionresult class with query results
-                TransactionResultComboxOverview1 r = new TransactionResultComboxOverview1(result.getString("serie.titel"));
+                TransactionResultComboxOverview1 r = new TransactionResultComboxOverview1(result.getString("naam"));
                 resultArray.add(r);
             }
             closeConnection(connection, panel); // close connection with the database
