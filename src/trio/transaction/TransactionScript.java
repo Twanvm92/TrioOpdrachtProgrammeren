@@ -14,35 +14,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * <code>TransactionScript</code> is een super klasse die een database connection verzorgt.
+ * <code>TransactionScript</code> is a super class that provides a connection to a database.
  * @author lukab
  */
 abstract public class TransactionScript {
     
     /**
      * 
-     * @param panel het paneel waar de SQLException error message wordt getoond.
-     * @return Connection 
+     * @param panel Panel that is being used to show an SQLException error on.
+     * @return Connection Return the connection if it succeeded, otherwise, return null
      */
     public Connection dbconnection(JPanel panel) {
         
         
 
-        try {   // probeer de volgende statements uit te voeren
+        try {   //Try to execute the following statements
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/netflix", "netflix", "netflix"); // maak connectie met localhost
-            return connection;
-            //Statement statement = connection.createStatement(); // maak statement
-            //ResultSet resultset = statement.executeQuery("SELECT * FROM abonnement;"); // laat statement een query uitvoeren
+            return connection; // returns connection if connection succeeded.
         }
-        catch (SQLException sqle) { // vang SQLException op en doe er wat mee
+        catch (SQLException sqle) { // Catch SQLException and show an error message on the overviewpanels
               JOptionPane.showMessageDialog(panel, "Database connectie is mislukt", "Fout", JOptionPane.ERROR_MESSAGE);
-              sqle.printStackTrace();
+              sqle.printStackTrace(); // print a trace of error messages in the console log
               return null;
         }
         
     }
     
-
+    /**
+     * Closes a database connection and catches any SQLExceptions
+     * @param connection Connection to the database
+     * @param panel Panel that is being used to show an SQLException error on.
+     */
     public void closeConnection (Connection connection, JPanel panel) {
         try {
             connection.close();  
@@ -56,7 +58,10 @@ abstract public class TransactionScript {
 
     
     
- 
+    /**
+     * 
+     * @return Returns an arraylist of query rows
+     */
     abstract public ArrayList query();
 
         
