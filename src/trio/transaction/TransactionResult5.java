@@ -9,12 +9,12 @@ package trio.transaction;
  *
  * @author lukab
  */
-public class TransactionResult5  {
-     String title;
+public class TransactionResult5 {
+     String name;
     
     
-    public TransactionResult5 (String title){
-        this.title = title;
+    public TransactionResult5 (String name){
+        this.name = name;
       
        
     }
@@ -23,7 +23,7 @@ public class TransactionResult5  {
     public String toString(){
           
         
-      String status =  String.format("Account naam: %20s", title);
+      String status =  String.format("Account naam: %-20s", name);
         
         return status;
         

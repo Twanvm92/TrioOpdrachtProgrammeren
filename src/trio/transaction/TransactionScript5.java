@@ -6,38 +6,38 @@
 package trio.transaction;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
  *
  * @author lukab
  */
-public class TransactionScript5 extends TransactionScript{
+public class TransactionScript5 extends TransactionScript {
     
     JPanel panel;
     ArrayList<TransactionResult5> resultArray;
     
     
     public TransactionScript5(){
-    this.panel = panel;
-        resultArray = new ArrayList<>();
+        this.panel = panel;
+        resultArray = new ArrayList<TransactionResult5>();
     }
 
     
-    @Override
+
     public ArrayList query(){
         
         Connection connection = this.dbconnection(panel);
-        String query = "SELECT abbonement.naam FROM abonnement\n" +
-"	INNER JOIN profiel ON abonnement.abonnementNr = profiel.abonnementNr\n" +
-"	GROUP BY abonnement.naam\n" +
-"	HAVING COUNT(*) = 1;" ;
+        String query = "SELECT * FROM abonnement JOIN profiel ON abonnement.abonnementNr=profiel.abonnementNr GROUP BY abonnement.naam HAVING COUNT(*) = 1";
         
-        
+      
         
       try{
             Statement statement = connection.createStatement();
@@ -46,12 +46,12 @@ public class TransactionScript5 extends TransactionScript{
              
             
             while(result.next()){
-                TransactionResult5 r = new TransactionResult5( result.getString( " abonnement.naam"));
+                TransactionResult5 r = new TransactionResult5( result.getString("abonnement.naam"));
                 resultArray.add(r);
             }
             
-            for (TransactionResult5 r :resultArray){
-                System.out.println(r);
+            for (TransactionResult5 g :resultArray){
+                System.out.println(g);
             }
              
             closeConnection(connection, panel);
