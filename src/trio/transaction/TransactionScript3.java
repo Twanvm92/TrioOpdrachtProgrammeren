@@ -76,8 +76,6 @@ public class TransactionScript3 extends TransactionScript{
                 resultArray.add(r);
             }
             
-            
-            
             closeConnection(connection, panel); // sluit de connectie met de database
             return resultArray;
             
@@ -92,8 +90,5 @@ public class TransactionScript3 extends TransactionScript{
         return resultArray;
       
     }
-    
-   
-    
   
 }

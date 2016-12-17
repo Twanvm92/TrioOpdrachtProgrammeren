@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
+import java.util.logging.Level; 
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 
@@ -49,10 +49,7 @@ public class TransactionScript5 extends TransactionScript {
                 TransactionResult5 r = new TransactionResult5( result.getString("abonnement.naam"));
                 resultArray.add(r);
             }
-            
-            for (TransactionResult5 g :resultArray){
-                System.out.println(g);
-            }
+           
              
             closeConnection(connection, panel);
             

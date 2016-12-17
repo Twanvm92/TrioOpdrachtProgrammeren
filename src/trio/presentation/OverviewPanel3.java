@@ -6,7 +6,6 @@
 package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -57,7 +56,11 @@ public class OverviewPanel3 extends JPanel {
         JPanel overview1_Center = new JPanel();
         overview1_Center.setLayout(new BorderLayout(0, 10));
         overview1_Center.add (purposeLabel, BorderLayout.NORTH);
-        text = new JTextArea(100, 100);
+ 
+        text = new JTextArea();
+        text.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        text.setLineWrap(true);
+       
         overview1_Center.add (text);
         add(overview1_North, BorderLayout.NORTH);
         add (overview1_Center, BorderLayout.CENTER);
@@ -78,13 +81,7 @@ public class OverviewPanel3 extends JPanel {
                 }
                 
                 text.setText(s);
-                
-                
-                 
-                 
-                
-                
-                
+               
 
             }
         } 

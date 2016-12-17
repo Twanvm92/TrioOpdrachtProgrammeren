@@ -7,26 +7,27 @@ package trio.transaction;
 
 /**
  *
- * @author Mika Krooswijk
+ * @author lukab
  */
-public class TransactionResult1{
-    String serie;
-    Double avg;
- 
+public class TransactionResult6 {
+     String name;
+     int quantity;
     
-    public TransactionResult1(String serie, Double avg){
-        this.serie = serie;
-        this.avg = avg;
+    
+    public TransactionResult6 (String name, int quantity){
+        this.name = name;
+        this.quantity = quantity;
+      
+       
     }
     
     
     public String toString(){
           
         
-        String status = String.format("Titel: %-20s gemiddelde: %3.2f", serie, avg);
+      String status =  String.format(" %2d kijker(s) hebben/heeft %20s afgekeken", quantity, name);
         
         return status;
-        
         
     }
 }

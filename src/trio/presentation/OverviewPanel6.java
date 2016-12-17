@@ -6,10 +6,21 @@
 package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.*;
+import trio.transaction.TransactionResult1;
+import trio.transaction.TransactionResult6;
+import trio.transaction.TransactionScript;
+import trio.transaction.TransactionScript1;
+import trio.transaction.TransactionScript4;
+import trio.transaction.TransactionScript6;
 import java.util.ArrayList;
 import javax.swing.*;
 import trio.transaction.TransactionResultComboxFilm;
 import trio.transaction.TransactionScriptComboxFilm;
+
 
 /**
  *
@@ -18,6 +29,8 @@ import trio.transaction.TransactionScriptComboxFilm;
 public class OverviewPanel6 extends JPanel{
     
     private JComboBox<String> myTitles;
+    private JTextArea area;
+    private TransactionScript6 script2;
     private JLabel titleLabel, purposeLabel;
     
     
@@ -33,9 +46,14 @@ public class OverviewPanel6 extends JPanel{
             TransactionResultComboxFilm result = resultArray.get(x);
             myTitles.addItem(result.getFilm());
         }
-     
+    
         
-      
+        area = new JTextArea();
+       area.setFont(new Font("Monospaced", Font.PLAIN, 12));
+       area.setLineWrap(true);
+       
+         myTitles.addActionListener(new action());
+
         
         
         titleLabel = new JLabel("Selecteer film  ");
@@ -50,8 +68,35 @@ public class OverviewPanel6 extends JPanel{
         JPanel overview1_Center = new JPanel();
         overview1_Center.setLayout(new BorderLayout(0, 10));
         overview1_Center.add (purposeLabel, BorderLayout.NORTH);
-        overview1_Center.add (new JTextArea(100, 100), BorderLayout.CENTER);
+        overview1_Center.add (area, BorderLayout.CENTER);
         add(overview1_North, BorderLayout.NORTH);
         add (overview1_Center, BorderLayout.CENTER);
 }
+    
+    public class action implements ActionListener { // listens to actions that have been performed
+       @Override
+       public void actionPerformed(ActionEvent e) {
+           
+            String s = " ";
+          String select = myTitles.getSelectedItem().toString();
+         
+           
+          script2 = new TransactionScript6(select);
+          ArrayList<TransactionResult6> list = new ArrayList<TransactionResult6>();
+           list = script2.query();
+       
+       
+        for (TransactionResult6 r : list) {
+            
+            
+           s += r.toString() + " \n";
+          
+           
+        }
+            
+            area.setText(s);
+          
+       }
+    }
+    
 }

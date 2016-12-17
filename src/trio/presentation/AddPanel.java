@@ -7,7 +7,13 @@ package trio.presentation;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
+import trio.transaction.TransactionResult6;
+import trio.transaction.TransactionScript6;
+import trio.transaction.TransactionScriptAdd;
 
 /**
  *
@@ -104,7 +110,54 @@ public AddPanel(){
      add (viewingHabitsField);
      add (addViewingHabitsBtn);
      
-     
+    
+    class ButtonHandler implements ActionListener { // listens to actions that have been performed
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           TransactionScriptAdd addScript = new TransactionScriptAdd(AddPanel.this); // instantiate the script that performs the queries
+           
+            // listen to what button gets clicked
+            if ( e.getSource() == addProfileBtn ) {
+                
+                // get strings from textfields and comboboxes
+                String profielNaam = profileNameField.getText();
+                String geboortedatum = birthdateField.getText();
+                String abonnementNr = fkaccountNrCB.getSelectedItem().toString();
+                
+                addScript.qeuryInsertProfiel(abonnementNr, profielNaam, geboortedatum); // execute query
+            }
+            
+            // listen to what button gets clicked
+            if ( e.getSource() == addAccountBtn ) {
+                
+                // get strings from textfields and comboboxes
+                String abonnementNaam = profileNameField.getText();
+                String straat = birthdateField.getText();
+                String abonnementNr = fkaccountNrCB.getSelectedItem().toString();
+                String postcode = postalcodeField.getText();
+                String huisnummer = houseNrField.getText();
+                String woonplaats = townField.getText();
+                
+                addScript.qeuryInsertAbonnement(abonnementNr, abonnementNaam, straat, // execute query
+                                            postcode, huisnummer, woonplaats);
+                
+            }
+            
+            // listen to what button gets clicked
+            if ( e.getSource() == addProfileBtn ) {
+                
+                // get strings from textfields and comboboxes
+                String naam = profileNameField.getText();
+                String programmaid = programIdCB.getSelectedItem().toString();
+                String profielNaam = profileNameCB.getSelectedItem().toString();
+                String percentage = viewingHabitsField.getText();
+                
+                addScript.qeuryInsertWatch(abonnementNr, profielNaam, programmaid, percentage);// execute query
+            }
+         
+        }
+
+    }
     
     
     

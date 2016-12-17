@@ -15,9 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 /**
- * <code>TransactionScript1</code> enherits from abstract class <code>TransactionScript</code>
- * Executes a query and saves the results in <code>TransactionResult1</code>
- * @see TransactionResult1
+ * <code>TransactionScriptComboxSerie</code> enherits from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResultComboxSerie</code>
+ * @see TransactionResultComboxSerie
  * @author Mika Krooswijk
  * @see TransactionScript
  */

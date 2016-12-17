@@ -82,7 +82,10 @@ public class OverviewPanel2 extends JPanel{
         JPanel overview2_Center = new JPanel();
         overview2_Center.setLayout(new BorderLayout(0, 10));
         overview2_Center.add (purposeLabel, BorderLayout.NORTH);
-        text = new JTextArea(100, 100);
+        text = new JTextArea();
+        text.setFont(new Font("Monospaced", Font.PLAIN, 12));
+       text.setLineWrap(true);
+       
         overview2_Center.add (text);
         add(overview2_North, BorderLayout.NORTH);
         add (overview2_Center, BorderLayout.CENTER);
@@ -96,7 +99,7 @@ public class OverviewPanel2 extends JPanel{
                 list = t.query();
                 
                 for(TransactionResult2 r : list){
-                    s += r.toString() + " \n";
+                    s += r.toString() + "\n";
                     
                 }
                 

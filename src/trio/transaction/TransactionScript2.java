@@ -36,7 +36,7 @@ public class TransactionScript2 extends TransactionScript{
         
         String query = "SELECT programma.titel, AVG(watch.percentage) FROM watch\n" +
 "	JOIN programma ON programma.ProgrammaID=watch.ProgrammaID\n" +
-"	WHERE watch.AbonnementNr=" + accountID +"  AND programma.titel='" + titel +"'\n" +
+"	WHERE watch.AbonnementNr=\"" + accountID +"\"  AND programma.titel=\"" + titel +"\"\n" +
 "	GROUP BY programma.titel";
         
         

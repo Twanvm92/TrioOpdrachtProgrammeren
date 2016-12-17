@@ -44,7 +44,7 @@ public class TransactionScriptComboxAbonnement extends TransactionScript{
         
         
       try{
-            Connection connection = this.dbconnection(panel); // make a connection with the database
+            Connection connection = dbconnection(panel); // make a connection with the database
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query); // query gets executed
             

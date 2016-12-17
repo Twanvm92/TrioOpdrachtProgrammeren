@@ -49,10 +49,6 @@ public class TransactionScript4 extends TransactionScript{
                 resultArray.add(r);
             }
 
-            
-           /* for (TransactionResult4 r :resultArray){
-                System.out.println(r);
-            } */
              
             closeConnection(connection, panel);
             

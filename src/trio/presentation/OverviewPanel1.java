@@ -60,7 +60,10 @@ public class OverviewPanel1 extends JPanel {
         JPanel overview1_Center = new JPanel();
         overview1_Center.setLayout(new BorderLayout(0, 10));
         overview1_Center.add (purposeLabel, BorderLayout.NORTH);
-        text = new JTextArea(100, 100);
+        text = new JTextArea();
+       text.setFont(new Font("Monospaced", Font.PLAIN, 12));
+       text.setLineWrap(true);
+       
         overview1_Center.add (text);
         
         add(overview1_North, BorderLayout.NORTH);
@@ -71,7 +74,7 @@ public class OverviewPanel1 extends JPanel {
    public class action implements ActionListener { // listens to actions that have been performed
        @Override
        public void actionPerformed(ActionEvent e) {
-           String s = " ";
+           String s = "";
            TransactionScript t = new TransactionScript1("" + myTitles.getSelectedItem(),OverviewPanel1.this);
            ArrayList<TransactionResult1> list = new ArrayList<TransactionResult1>();
            list = t.query();

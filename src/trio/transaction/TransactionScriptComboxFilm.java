@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 /**
  * <code>TransactionScriptComboboxFilm/code> enherits from abstract class <code>TransactionScript</code>
  * Executes a query and saves the results in <code>TransactionResultComboboxFilm</code>
- * @see TransactionResult1
+ * @see TransactionResultComboxFilm
  * @author Mika Krooswijk
  * @see TransactionScript
  */
@@ -36,7 +36,7 @@ public class TransactionScriptComboxFilm extends TransactionScript{
     public ArrayList query(){
         
         // fill a string with query data
-        String query = "SELECT programma.titel FROM programma INNER JOIN film ON programma.programmaid = film.programmaid";
+        String query = "SELECT programma.titel FROM programma INNER JOIN film ON programma.programmaid = film.programmaid ORDER BY programma.titel asc";
         
         
         
