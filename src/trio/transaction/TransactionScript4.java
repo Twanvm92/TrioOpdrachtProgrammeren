@@ -48,6 +48,7 @@ public class TransactionScript4 extends TransactionScript{
                 TransactionResult4 r = new TransactionResult4( result.getString("programma.titel"), result.getInt("film.leeftijdsIndicatie"), result.getString("programma.duur"));
                 resultArray.add(r);
             }
+
              
             closeConnection(connection, panel);
             

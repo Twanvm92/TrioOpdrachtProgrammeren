@@ -9,10 +9,10 @@ package trio.transaction;
  *
  * @author twanv
  */
-public class TransactionResultComboxOverview1 {
+public class TransactionResultComboxSerie {
     private String titelSerie;
     
-    public TransactionResultComboxOverview1(String titelSerie) {
+    public TransactionResultComboxSerie(String titelSerie) {
         this.titelSerie = titelSerie;
     }
     

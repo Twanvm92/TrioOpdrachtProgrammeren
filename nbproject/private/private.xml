@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/trio/transaction/TransactionScript5.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>13</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Week 3">
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
@@ -35,23 +44,25 @@
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
         </group>
         <group>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel4.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult6.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript3.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult3.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/AddPanel.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel5.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript1.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult1.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxOverview6.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript6.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript5.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult1.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxOverview6.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxOverview1.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel3.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxFilm.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel2.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript4.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixPanel.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult2.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript2.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/RemovePanel.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult5.java</file>
         </group>
     </open-files>

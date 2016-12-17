@@ -12,14 +12,15 @@ import java.util.ArrayList;
 import javax.swing.*;
 import trio.transaction.TransactionResult1;
 import trio.transaction.TransactionResult6;
-import trio.transaction.TransactionResultComboxOverview1;
-import trio.transaction.TransactionResultComboxOverview6;
 import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript1;
 import trio.transaction.TransactionScript4;
 import trio.transaction.TransactionScript6;
-import trio.transaction.TransactionScriptComboxOverview1;
-import trio.transaction.TransactionScriptComboxOverview6;
+import java.util.ArrayList;
+import javax.swing.*;
+import trio.transaction.TransactionResultComboxFilm;
+import trio.transaction.TransactionScriptComboxFilm;
+
 
 /**
  *
@@ -34,18 +35,18 @@ public class OverviewPanel6 extends JPanel{
     
     
     public OverviewPanel6() {
-    setLayout( new BorderLayout(40,40));
-       
-     setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
+        setLayout( new BorderLayout(40,40));
+        setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
         myTitles = new JComboBox<String>();
-      
-         TransactionScriptComboxOverview6 script = new TransactionScriptComboxOverview6(OverviewPanel6.this);
-        ArrayList<TransactionResultComboxOverview6> resultArray = script.query();
-        
-        for (int x = 0; x < resultArray.size(); x++ ) {
-            TransactionResultComboxOverview6 result = resultArray.get(x);
-            myTitles.addItem(result.getTitel());
+
+        TransactionScriptComboxFilm script = new TransactionScriptComboxFilm(this);
+        ArrayList<TransactionResultComboxFilm> resultArray = script.query();
+
+        for ( int x = 0; x < resultArray.size(); x++) {
+            TransactionResultComboxFilm result = resultArray.get(x);
+            myTitles.addItem(result.getFilm());
         }
+    
         
         area = new JTextArea();
        area.setFont(new Font("Monospaced", Font.PLAIN, 12));
@@ -53,7 +54,6 @@ public class OverviewPanel6 extends JPanel{
        
          myTitles.addActionListener(new action());
 
-       
         
         
         titleLabel = new JLabel("Selecteer film  ");
@@ -77,23 +77,24 @@ public class OverviewPanel6 extends JPanel{
        @Override
        public void actionPerformed(ActionEvent e) {
            
-           
+            String s = " ";
           String select = myTitles.getSelectedItem().toString();
-          String s = " ";
-          
-          System.out.println(select);
+         
            
           script2 = new TransactionScript6(select);
           ArrayList<TransactionResult6> list = new ArrayList<TransactionResult6>();
            list = script2.query();
        
        
-        for (Object result : list) {
+        for (TransactionResult6 r : list) {
             
             
-           s += result.toString() + " \n";
+           s += r.toString() + " \n";
+          
            
         }
+            
+            area.setText(s);
           
        }
    }

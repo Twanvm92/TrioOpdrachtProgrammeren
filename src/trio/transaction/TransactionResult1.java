@@ -22,10 +22,10 @@ public class TransactionResult1{
     
     public String toString(){
           
-        String s = " ";
-        s = "titel: " + serie +  " gemiddelde: " + avg + "%";
         
-        return s;
+        String status = String.format("Titel: %-20s gemiddelde: %3.2f", serie, avg);
+        
+        return status;
         
         
     }
