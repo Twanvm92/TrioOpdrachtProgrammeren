@@ -2,27 +2,57 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="Week 3">
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel3.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxOverview1.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Movie.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixPanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/main/TrioOpdrachtProgrammeren.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/ControlPanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixFrame.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript3.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Profile.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Subscription.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Serie.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/AddPanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxOverview1.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Watch.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/RemovePanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Cards.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/domain/Program.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/ChangePanel.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel2.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel5.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/NetfilxView.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript2.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/nbproject/build-impl.xml</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript1.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult3.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel4.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
+        </group>
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel4.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript5.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult6.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript3.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript4.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult3.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel5.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult4.java</file>
-            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult5.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript1.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult1.java</file>
             <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript6.java</file>
-=======
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionScript3.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/presentation/OverviewPanel3.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionScript4.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/presentation/OverviewPanel4.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionResult4.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionScript.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionResult3.java</file>
->>>>>>> refs/remotes/origin/master
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript5.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxOverview1.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript4.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/presentation/NetflixPanel.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult2.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript2.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult.java</file>
+            <file>file:/C:/Users/lukab/Documents/GitHub/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult5.java</file>
         </group>
     </open-files>
 </project-private>

@@ -72,15 +72,9 @@ public class TransactionScript3 extends TransactionScript{
             
             while(result.next()){
                 TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getString("programma.duur"));
-<<<<<<< HEAD
 
-=======
-                 
->>>>>>> refs/remotes/origin/master
                 resultArray.add(r);
             }
-            
-            
             
             closeConnection(connection, panel); // sluit de connectie met de database
             return resultArray;
@@ -96,8 +90,5 @@ public class TransactionScript3 extends TransactionScript{
         return resultArray;
       
     }
-    
-   
-    
   
 }
