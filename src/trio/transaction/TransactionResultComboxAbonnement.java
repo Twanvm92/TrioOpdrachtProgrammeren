@@ -9,10 +9,10 @@ package trio.transaction;
  * This class will 
  * @author twanv
  */
-public class TransactionResultComboxOverview3 {
+public class TransactionResultComboxAbonnement {
     private String naamAbonnement;
     
-    public TransactionResultComboxOverview3 (String naamAbonnement) {
+    public TransactionResultComboxAbonnement (String naamAbonnement) {
         this.naamAbonnement = naamAbonnement;
     }
     

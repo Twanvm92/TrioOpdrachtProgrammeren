@@ -6,7 +6,10 @@
 package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.*;
+import trio.transaction.TransactionResultComboxFilm;
+import trio.transaction.TransactionScriptComboxFilm;
 
 /**
  *
@@ -19,14 +22,21 @@ public class OverviewPanel6 extends JPanel{
     
     
     public OverviewPanel6() {
-    setLayout( new BorderLayout(40,40));
-       
-     setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
+        setLayout( new BorderLayout(40,40));
+        setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
         myTitles = new JComboBox<String>();
+
+        TransactionScriptComboxFilm script = new TransactionScriptComboxFilm(this);
+        ArrayList<TransactionResultComboxFilm> resultArray = script.query();
+
+        for ( int x = 0; x < resultArray.size(); x++) {
+            TransactionResultComboxFilm result = resultArray.get(x);
+            myTitles.addItem(result.getFilm());
+        }
+     
+        
       
-        myTitles.addItem("House of Cards");
-        myTitles.addItem("Breaking Bad");
-        myTitles.addItem("Dexter");
+        
         
         titleLabel = new JLabel("Selecteer film  ");
         titleLabel.setFont(new Font("Arial", Font.PLAIN, 14));

@@ -22,6 +22,7 @@ import javax.swing.JPanel;
  * @see TransactionScript
  */
 public class TransactionScript3 extends TransactionScript{
+
     private String abonnement;
     private JPanel panel;
     ArrayList<TransactionResult3> resultArray;
@@ -33,14 +34,25 @@ public class TransactionScript3 extends TransactionScript{
     // Contructor initialiseert
     public TransactionScript3(String abonnement, JPanel panel){
         this.abonnement = abonnement;
+
         this.panel = panel;
+ 
+        resultArray = new ArrayList<TransactionResult3>();
+        this.abonnement = abonnement;
+ 
         resultArray = new ArrayList();
+
     }
+
     /**
      * @see TransactionScript gebruikt database connection methode van deze klasse
      */
-    @Override
+
+
+
+
     public ArrayList query(){
+
         
         // vult een string met query gegevens
         String query = "SELECT DISTINCT programma.titel, programma.duur FROM abonnement\n" +
@@ -59,17 +71,16 @@ public class TransactionScript3 extends TransactionScript{
             
             
             while(result.next()){
-                TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getNString("programma.duur"));
+                TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getString("programma.duur"));
 
                 resultArray.add(r);
             }
             
-            for (TransactionResult3 r :resultArray){
-                System.out.println(r);
-            }
+            
             
             closeConnection(connection, panel); // sluit de connectie met de database
             return resultArray;
+            
         }catch (SQLException exeption) { // vang exception op wanneer connectie met database niet gemaakt kan worden
           JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
@@ -82,7 +93,7 @@ public class TransactionScript3 extends TransactionScript{
       
     }
     
-    public void testMethod() {
-        System.out.println("Dit is een test");
-    }
+   
+    
+  
 }

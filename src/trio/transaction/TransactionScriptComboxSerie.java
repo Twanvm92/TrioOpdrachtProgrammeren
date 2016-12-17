@@ -21,10 +21,9 @@ import javax.swing.JPanel;
  * @author Mika Krooswijk
  * @see TransactionScript
  */
-public class TransactionScriptComboxOverview1 extends TransactionScript{
-    private String serie;
+public class TransactionScriptComboxSerie extends TransactionScript{
     JPanel panel;
-    ArrayList<TransactionResultComboxOverview1> resultArray;
+    ArrayList<TransactionResultComboxSerie> resultArray;
     
     /**
      * 
@@ -32,7 +31,7 @@ public class TransactionScriptComboxOverview1 extends TransactionScript{
      * @param panel The panel where the error message from an SQLException shows ons
      */
     // Contructor initialises
-    public TransactionScriptComboxOverview1(JPanel panel){
+    public TransactionScriptComboxSerie(JPanel panel){
         this.panel = panel;
         resultArray = new ArrayList<>();
     }
@@ -51,7 +50,7 @@ public class TransactionScriptComboxOverview1 extends TransactionScript{
             ResultSet result = statement.executeQuery(query); // query gets executed
             
             while(result.next()){ // fill transactionresult class with query results
-                TransactionResultComboxOverview1 r = new TransactionResultComboxOverview1(result.getString("serie.titel"));
+                TransactionResultComboxSerie r = new TransactionResultComboxSerie(result.getString("serie.titel"));
                 resultArray.add(r);
             }
             closeConnection(connection, panel); // close connection with the database

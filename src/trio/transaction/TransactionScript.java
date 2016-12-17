@@ -42,17 +42,24 @@ abstract public class TransactionScript {
         
     }
     
+
     public void closeConnection (Connection connection, JPanel panel) {
         try {
             connection.close();  
         }
         catch (SQLException sqle) {
-            JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Database connectie kon niet verboken worden", "Fout", JOptionPane.ERROR_MESSAGE);
         }
     }
     
     
+
+    
+    
+ 
     abstract public ArrayList query();
+
         
+
 
 }
