@@ -23,9 +23,9 @@ public class AddPanel extends JPanel{
     JTextField profileNameField, birthdateField, fkaccountNrField,pkaccountNrField, accountNameField, accountStreetField, 
             townField, houseNrField, postalcodeField, viewingHabitsField;
     JLabel profileNameLbl, birthdateLbl, fkaccountNrLbl, pkaccountNrLbl, accountNameLbl, accountStreetLbl, townLbl, houseNrLbl,
-            postalcodeLbl, programIdLbl, viewingHabitsLbl, viewinghabits, accounts, profiles;
+            postalcodeLbl, programIdLbl, viewingHabitsLbl, viewinghabits, accounts, profiles, kijkgedragAccountNrLbl;
     JButton addProfileBtn, addAccountBtn, addViewingHabitsBtn;
-    JComboBox programIdCB, profileNameCB, fkaccountNrCB;
+    JComboBox programIdCB, profileNameCB, fkaccountNrCB, kijkgedragAccountNrCB;
     
 public AddPanel(){
     
@@ -40,6 +40,7 @@ public AddPanel(){
     profileNameLbl = new JLabel ("Profielnaam: ");
     birthdateLbl = new JLabel ("Geboortedatum: ");
     fkaccountNrLbl = new JLabel ("Abonneenummer: ");
+    kijkgedragAccountNrLbl = new JLabel ("Abonneenummer: ");
     
     pkaccountNrLbl = new JLabel ("Abonneenummer: ");
     accountNameLbl = new JLabel ("Abonnee naam: ");
@@ -56,6 +57,7 @@ public AddPanel(){
     fkaccountNrCB = new JComboBox();
     programIdLbl = new JLabel ("Programma ID"); //Combobox met programma's?'
     programIdCB = new JComboBox();
+    kijkgedragAccountNrCB = new JComboBox();
     
     profileNameField = new JTextField (20);
     birthdateField = new JTextField (20);
@@ -104,6 +106,8 @@ public AddPanel(){
      add (new JLabel(""));
      add (new JLabel ("Profiel naam"));
      add (profileNameCB);
+     add (kijkgedragAccountNrLbl);
+     add (kijkgedragAccountNrCB);
      add (new JLabel ("Programma ID: "));
      add (programIdCB);
      add (viewingHabitsLbl);
