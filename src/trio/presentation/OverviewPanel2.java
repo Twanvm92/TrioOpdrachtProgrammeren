@@ -8,7 +8,15 @@ package trio.presentation;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
+import trio.transaction.TransactionResult2;
+import trio.transaction.TransactionResult3;
+import trio.transaction.TransactionScript;
+import trio.transaction.TransactionScript2;
+import trio.transaction.TransactionScript3;
 
 /**
  *
@@ -18,6 +26,7 @@ public class OverviewPanel2 extends JPanel{
    
     JLabel titleLabel1, purposeLabel, titleLabel2;
     JComboBox<String> myTitles, myAccounts;
+    JTextArea text;
     
     public OverviewPanel2() {
         setLayout( new BorderLayout(40,40));
@@ -26,13 +35,13 @@ public class OverviewPanel2 extends JPanel{
         myTitles = new JComboBox<String>();
         myAccounts = new JComboBox<String>();
       
-        myTitles.addItem("House of Cards");
-        myTitles.addItem("Breaking Bad");
-        myTitles.addItem("Dexter");
+        myTitles.addItem("Down");
+        myTitles.addItem("Down");
+        myTitles.addItem("Down");
         
-        myAccounts.addItem("Account 1");
-        myAccounts.addItem("Account 2");
-        myAccounts.addItem("Account 3");
+        myAccounts.addItem("5285824");
+        myAccounts.addItem("5285824");
+        myAccounts.addItem("5285824");
         
         titleLabel1 = new JLabel("Selecteer serie  ");
         titleLabel1.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -40,6 +49,9 @@ public class OverviewPanel2 extends JPanel{
         titleLabel2.setFont(new Font("Arial", Font.PLAIN, 14));
         purposeLabel = new JLabel("Gemiddeld % bekeken per aflevering");
         purposeLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        
+        myTitles.addActionListener(new action());
+        myAccounts.addActionListener(new action());
         
         JPanel overview2_North = new JPanel();
         overview2_North.add(titleLabel1);
@@ -50,9 +62,41 @@ public class OverviewPanel2 extends JPanel{
         JPanel overview2_Center = new JPanel();
         overview2_Center.setLayout(new BorderLayout(0, 10));
         overview2_Center.add (purposeLabel, BorderLayout.NORTH);
-        overview2_Center.add (new JTextArea(100, 100), BorderLayout.CENTER);
+        text = new JTextArea(100, 100);
+        overview2_Center.add (text);
         add(overview2_North, BorderLayout.NORTH);
         add (overview2_Center, BorderLayout.CENTER);
 }
-    
+    class action implements ActionListener{
+            public void actionPerformed(ActionEvent e){
+
+                String s = ""; 
+                TransactionScript t = new TransactionScript2("" + myAccounts.getSelectedItem(), "" + myTitles.getSelectedItem(), OverviewPanel2.this);
+                ArrayList<TransactionResult2> list = new ArrayList<TransactionResult2>();
+                list = t.query();
+                
+                for(TransactionResult2 r : list){
+                    s += r.toString() + " \n";
+                    
+                }
+                
+                text.setText(s);
+               
+                
+               
+                 
+                 
+                
+                
+               
+                
+                
+                 
+                 
+                
+                
+                
+
+            }
+        } 
 }

@@ -9,22 +9,21 @@ package trio.transaction;
  *
  * @author Mika Krooswijk
  */
-public class TransactionResult3{
-    String titel;
-    String duration;
+public class TransactionResult2{
+    String account;
+    Double avg;
  
     
-    public TransactionResult3(String titel, String duration){
-        this.titel = titel;
-        this.duration = duration;
-       
+    public TransactionResult2(String account, Double avg){
+        this.account = account;
+        this.avg = avg;
     }
     
     
     public String toString(){
           
         String s = " ";
-        s = "titel: " + titel + "           duur: " +  duration;
+        s = "account: " + account +  " gemiddelde: " + avg + "%";
         
         return s;
         
