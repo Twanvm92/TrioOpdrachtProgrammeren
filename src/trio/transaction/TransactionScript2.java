@@ -53,7 +53,7 @@ public class TransactionScript2 extends TransactionScript{
             
             connection.close();
       }catch (SQLException exeption) {
-            JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }finally{
           

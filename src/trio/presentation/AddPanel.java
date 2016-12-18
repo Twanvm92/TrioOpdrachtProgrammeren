@@ -7,13 +7,14 @@ package trio.presentation;
 
 import java.awt.Font;
 import java.awt.GridLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
-import trio.transaction.TransactionResult6;
-import trio.transaction.TransactionScript6;
-import trio.transaction.TransactionScriptAdd;
+import trio.transaction.*;
 
 /**
  *
@@ -26,6 +27,8 @@ public class AddPanel extends JPanel{
             postalcodeLbl, programIdLbl, viewingHabitsLbl, viewinghabits, accounts, profiles, kijkgedragAccountNrLbl;
     JButton addProfileBtn, addAccountBtn, addViewingHabitsBtn;
     JComboBox programIdCB, profileNameCB, fkaccountNrCB, kijkgedragAccountNrCB;
+    private TransactionScriptComboxAbonnementNr script;
+    private DefaultComboBoxModel accountNrModel;
     
 public AddPanel(){
     
@@ -54,10 +57,9 @@ public AddPanel(){
     
     
     profileNameCB = new JComboBox();
-    fkaccountNrCB = new JComboBox();
     programIdLbl = new JLabel ("Programma ID"); //Combobox met programma's?'
     programIdCB = new JComboBox();
-    kijkgedragAccountNrCB = new JComboBox();
+    
     
     profileNameField = new JTextField (20);
     birthdateField = new JTextField (20);
@@ -73,6 +75,30 @@ public AddPanel(){
     addProfileBtn = new JButton ("Voeg profiel toe");
     addAccountBtn = new JButton ("Voeg account toe");
     addViewingHabitsBtn = new JButton ("Voeg kijkgedrag toe");
+    
+    
+    // declare and initialize new Transitionscript
+    // put results of the query() method in an arraylist.
+    script = new TransactionScriptComboxAbonnementNr(AddPanel.this);
+    ArrayList<TransactionResultComboxAbonnementNr> resultArray = script.query();
+    List<String> values = new ArrayList();
+
+    // create a combobox that will be used to hold accountnumbers
+    fkaccountNrCB = new JComboBox();
+    kijkgedragAccountNrCB = new JComboBox();
+
+    // add results from resultArray to a list
+    for (int x = 0; x < resultArray.size();x++) {
+        TransactionResultComboxAbonnementNr result = resultArray.get(x);
+        values.add(result.getNaam());
+    }
+    
+    //  add new model with results to the combobox
+    fkaccountNrCB.setModel(new DefaultComboBoxModel(values.toArray()));
+    kijkgedragAccountNrCB.setModel(new DefaultComboBoxModel(values.toArray()));
+    
+    addAccountBtn.addActionListener(new ButtonHandler());
+    addProfileBtn.addActionListener(new ButtonHandler());
     
     add (profiles);
     add (new JLabel (""));
@@ -115,6 +141,13 @@ public AddPanel(){
      add (addViewingHabitsBtn);
      
     
+    
+    
+    
+}
+    /**
+     * Actionlistener that will fire queries when one of the three available buttons is clicked.
+     */
     class ButtonHandler implements ActionListener { // listens to actions that have been performed
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -129,15 +162,18 @@ public AddPanel(){
                 String abonnementNr = fkaccountNrCB.getSelectedItem().toString();
                 
                 addScript.qeuryInsertProfiel(abonnementNr, profielNaam, geboortedatum); // execute query
+                
+                profileNameField.setText("");
+                birthdateField.setText("");
             }
             
             // listen to what button gets clicked
             if ( e.getSource() == addAccountBtn ) {
                 
                 // get strings from textfields and comboboxes
-                String abonnementNaam = profileNameField.getText();
-                String straat = birthdateField.getText();
-                String abonnementNr = fkaccountNrCB.getSelectedItem().toString();
+                String abonnementNaam = accountNameField.getText();
+                String straat = accountStreetField.getText();
+                String abonnementNr = pkaccountNrField.getText();
                 String postcode = postalcodeField.getText();
                 String huisnummer = houseNrField.getText();
                 String woonplaats = townField.getText();
@@ -145,16 +181,43 @@ public AddPanel(){
                 addScript.qeuryInsertAbonnement(abonnementNr, abonnementNaam, straat, // execute query
                                             postcode, huisnummer, woonplaats);
                 
+                
+                
+                // Make new script and fire querie again for new results and make a list
+                TransactionScriptComboxAbonnementNr script = new TransactionScriptComboxAbonnementNr(AddPanel.this);
+                ArrayList<TransactionResultComboxAbonnementNr> resultArray2 = script.query();
+                List<String> values = new ArrayList();
+                
+                // add results from resultArray to a list
+                for (int x = 0; x < resultArray2.size();x++) {
+                    TransactionResultComboxAbonnementNr result = resultArray2.get(x);
+                    values.add(result.getNaam());
+                }
+                
+                
+                //  add new model with results to the comboboxes
+                fkaccountNrCB.setModel(new DefaultComboBoxModel(values.toArray()));
+                kijkgedragAccountNrCB.setModel(new DefaultComboBoxModel(values.toArray()));
+                
+                // reset all text fields under Account
+                accountNameField.setText("");
+                accountStreetField.setText("");
+                pkaccountNrField.setText("");
+                postalcodeField.setText("");
+                houseNrField.setText("");
+                townField.setText("");
+                
             }
             
             // listen to what button gets clicked
-            if ( e.getSource() == addProfileBtn ) {
+            if ( e.getSource() == addViewingHabitsBtn ) {
                 
                 // get strings from textfields and comboboxes
                 String naam = profileNameField.getText();
                 String programmaid = programIdCB.getSelectedItem().toString();
                 String profielNaam = profileNameCB.getSelectedItem().toString();
                 String percentage = viewingHabitsField.getText();
+                String abonnementNr = kijkgedragAccountNrCB.getSelectedItem().toString();
                 
                 addScript.qeuryInsertWatch(abonnementNr, profielNaam, programmaid, percentage);// execute query
             }
@@ -162,8 +225,4 @@ public AddPanel(){
         }
 
     }
-    
-    
-    
-}   
 }

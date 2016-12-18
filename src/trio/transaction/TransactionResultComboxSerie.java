@@ -6,16 +6,24 @@
 package trio.transaction;
 
 /**
- *
+ * This class has a getrequest that returns the title of a serie of a query result
  * @author twanv
  */
 public class TransactionResultComboxSerie {
     private String titelSerie;
     
+    /**
+     * 
+     * @param titelSerie The title of a serie that got caught by a query
+     */
     public TransactionResultComboxSerie(String titelSerie) {
         this.titelSerie = titelSerie;
     }
     
+    /**
+     * 
+     * @return The titel of a serie
+     */
     public String getTitel() {
         return titelSerie;
     }

@@ -33,7 +33,7 @@ abstract public class TransactionScript {
             return connection; // returns connection if connection succeeded.
         }
         catch (SQLException sqle) { // Catch SQLException and show an error message on the overviewpanels
-              JOptionPane.showMessageDialog(panel, "Database connectie is mislukt", "Fout", JOptionPane.ERROR_MESSAGE);
+              JOptionPane.showMessageDialog(panel, "Database connection failed", "Fout", JOptionPane.ERROR_MESSAGE);
               sqle.printStackTrace(); // print a trace of error messages in the console log
               return null;
         }
@@ -50,7 +50,7 @@ abstract public class TransactionScript {
             connection.close();  
         }
         catch (SQLException sqle) {
-            JOptionPane.showMessageDialog(panel, "Database connectie kon niet verboken worden", "Fout", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Database connection failed", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     

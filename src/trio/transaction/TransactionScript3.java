@@ -80,7 +80,7 @@ public class TransactionScript3 extends TransactionScript{
             return resultArray;
             
         }catch (SQLException exeption) { // vang exception op wanneer connectie met database niet gemaakt kan worden
-          JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
+          JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
         }
         catch (NullPointerException npe) { // vang exception op wanneer connectie null is

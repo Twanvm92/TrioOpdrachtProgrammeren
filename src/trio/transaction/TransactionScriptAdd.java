@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  * <code>TransactionScriptAdd</code> enherits from abstract class <code>TransactionScript</code>
@@ -23,7 +24,7 @@ import javax.swing.JPanel;
  */
 public class TransactionScriptAdd extends TransactionScript{
     JPanel panel;
-    String abonnementNr, geboortedatum, profielNaam;
+    //String abonnementNr, geboortedatum, profielNaam;
     
 
     /**
@@ -31,7 +32,6 @@ public class TransactionScriptAdd extends TransactionScript{
      *
      * @param panel The panel where the error message from an SQLException shows on
      */
-    // Contructor initialiseert
 
     public TransactionScriptAdd(JPanel panel){
         
@@ -49,77 +49,89 @@ public class TransactionScriptAdd extends TransactionScript{
     
     /**
      * Inserts a new profile into the database by firing a query
-     * @param abonnementNr
-     * @param profielNaam
-     * @param geboortedatum
+     * @param abonnementNr The unique number of an account
+     * @param profielNaam  The profile name connected to the account
+     * @param geboortedatum The birthdate of the person behind the profile
      */
     public void qeuryInsertProfiel(String abonnementNr, String profielNaam, String geboortedatum) {
         // fill a string with query data
         String query = "INSERT INTO profiel"
-                + "VALUES('" + abonnementNr + "', '" + profielNaam + "', '" + "', " + geboortedatum + "');";
+                + " VALUES('" + abonnementNr + "', '" + profielNaam + "', '" + geboortedatum + "');";
         
         try{
 
             Connection connection = this.dbconnection(panel); // make a connection with the database
 
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query); // query gets executed
+            statement.executeUpdate(query); // query gets executed
 
             closeConnection(connection, panel); // close connection with the database
-      }catch (SQLException exeption) { // catch exception when connection with database fails
+            
+            //show a pop-up message when account has been created
+            JOptionPane.showMessageDialog(panel, "Profile has been created!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
+      }catch (SQLException exeption) { // catch exception when connection with database fails and does something with it
+            JOptionPane.showMessageDialog(panel, "Could not create profile", "Error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
     }
     
     /**
      * Inserts a new account into the database by firing a query
-     * @param abonnementNr
-     * @param naam
-     * @param straat
-     * @param postcode
-     * @param huisnummer
-     * @param woonplaats
+     * @param abonnementNr The unique number of an account
+     * @param naam The name connected to a account
+     * @param straat The streetname connected to an account
+     * @param postcode The postalcode connected to an account
+     * @param huisnummer The housenumber connected to an account
+     * @param woonplaats The city connected to an account
      */
     public void qeuryInsertAbonnement(String abonnementNr, String naam, String straat,
             String postcode, String huisnummer, String woonplaats) {
         // fill a string with query data
         String query = "INSERT INTO abonnement"
-                + "VALUES('" + abonnementNr + "', '" + naam + "', '" + "', " + straat
-                + "', '" + postcode + "', '" + huisnummer + "', '" + "', " + woonplaats + "');";
+                + " VALUES(" + abonnementNr + ", '" + naam + "', '" + straat
+                + "', '" + postcode + "', '" + huisnummer + "', '" + woonplaats + "');";
         
         try{
 
             Connection connection = this.dbconnection(panel); // make a connection with the database
 
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query); // query gets executed
+            statement.executeUpdate(query); // query gets executed
 
             closeConnection(connection, panel); // close connection with the database
-      }catch (SQLException exeption) { // catch exception when connection with database fails
+            
+            //show a pop-up message when account has been created
+            JOptionPane.showMessageDialog(panel, "Account has been created!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
+      }catch (SQLException exeption) { // catch exception when connection with database fails and does something with it
+            JOptionPane.showMessageDialog(panel, "Could not create account", "Error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
     }
     
     /**
      * Inserts a new watch into the database by firing a query
-     * @param abonnementnr
-     * @param naam
-     * @param programmaid
+     * @param abonnementNr The account number of the profile that watched something
+     * @param naam The name of the profile that watched something
+     * @param programmaid The id of a programme that was watched.
      */
-    public void qeuryInsertWatch(String abonnementnr, String naam, String programmaid, String percentage) {
+    public void qeuryInsertWatch(String abonnementNr, String naam, String programmaid, String percentage) {
          // fill a string with query data
         String query = "INSERT INTO watch"
-                + "VALUES('" + abonnementNr + "', '" + naam + "', '" + "', " + programmaid + "', '" + percentage + "');";
+                + " VALUES('" + abonnementNr + "', '" + naam + "', '" + programmaid + "', '" + percentage + "');";
         
         try{
 
             Connection connection = this.dbconnection(panel); // make a connection with the database
 
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query); // query gets executed
+            statement.executeUpdate(query); // query gets executed
 
             closeConnection(connection, panel); // close connection with the database
-      }catch (SQLException exeption) { // catch exception when connection with database fails
+            
+            //show a pop-up message when account has been created
+            JOptionPane.showMessageDialog(panel, "Watch has been created!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
+      }catch (SQLException exeption) { // catch exception when connection with database fails and does something with it
+          JOptionPane.showMessageDialog(panel, "Could not create watch", "Error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
     }
