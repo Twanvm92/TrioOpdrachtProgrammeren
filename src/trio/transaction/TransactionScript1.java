@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  * <code>TransactionScript1</code> erft methodes van abstracte klasse <code>TransactionScript</code>
@@ -73,6 +74,7 @@ public class TransactionScript1 extends TransactionScript{
             }
             closeConnection(connection, panel); // sluit de connectie met de database
       }catch (SQLException exeption) { // vangt exception op wanneer connectie met database niet gemaakt kan worden
+            JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
       return resultArray;

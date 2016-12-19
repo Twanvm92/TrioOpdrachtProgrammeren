@@ -13,11 +13,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import trio.transaction.TransactionResult1;
-import trio.transaction.TransactionResultComboxOverview1;
+import trio.transaction.TransactionResultComboxSerie;
 import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript1;
 import trio.transaction.TransactionScript3;
-import trio.transaction.TransactionScriptComboxOverview1;
+import trio.transaction.TransactionScriptComboxSerie;
 
 /**
  *
@@ -34,8 +34,8 @@ public class OverviewPanel1 extends JPanel {
         
         // declare and initialize new Transitionscript
         // put results of the query() method in an arraylist.
-        TransactionScriptComboxOverview1 script = new TransactionScriptComboxOverview1(OverviewPanel1.this);
-        ArrayList<TransactionResultComboxOverview1> resultArray = script.query();
+        TransactionScriptComboxSerie script = new TransactionScriptComboxSerie(OverviewPanel1.this);
+        ArrayList<TransactionResultComboxSerie> resultArray = script.query();
     
         setLayout( new BorderLayout(40,40));
        
@@ -44,7 +44,7 @@ public class OverviewPanel1 extends JPanel {
         
         // add results from resultArray to JCombobox
         for (int x = 0; x < resultArray.size(); x++ ) {
-            TransactionResultComboxOverview1 result = resultArray.get(x);
+            TransactionResultComboxSerie result = resultArray.get(x);
             myTitles.addItem(result.getTitel());
         }
         myTitles.addActionListener(new action());
@@ -60,7 +60,10 @@ public class OverviewPanel1 extends JPanel {
         JPanel overview1_Center = new JPanel();
         overview1_Center.setLayout(new BorderLayout(0, 10));
         overview1_Center.add (purposeLabel, BorderLayout.NORTH);
-        text = new JTextArea(100, 100);
+        text = new JTextArea();
+       text.setFont(new Font("Monospaced", Font.PLAIN, 12));
+       text.setLineWrap(true);
+       
         overview1_Center.add (text);
         
         add(overview1_North, BorderLayout.NORTH);
@@ -71,7 +74,7 @@ public class OverviewPanel1 extends JPanel {
    public class action implements ActionListener { // listens to actions that have been performed
        @Override
        public void actionPerformed(ActionEvent e) {
-           String s = " ";
+           String s = "";
            TransactionScript t = new TransactionScript1("" + myTitles.getSelectedItem(),OverviewPanel1.this);
            ArrayList<TransactionResult1> list = new ArrayList<TransactionResult1>();
            list = t.query();

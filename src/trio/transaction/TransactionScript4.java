@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -26,7 +27,7 @@ public class TransactionScript4 extends TransactionScript{
     
     public TransactionScript4(){
         this.panel = panel;
-        resultArray = new ArrayList<>();
+        resultArray = new ArrayList<TransactionResult4>();
     }
     
     @Override
@@ -48,10 +49,7 @@ public class TransactionScript4 extends TransactionScript{
                 TransactionResult4 r = new TransactionResult4( result.getString("programma.titel"), result.getInt("film.leeftijdsIndicatie"), result.getString("programma.duur"));
                 resultArray.add(r);
             }
-            
-           /* for (TransactionResult4 r :resultArray){
-                System.out.println(r);
-            } */
+
              
             closeConnection(connection, panel);
             
@@ -59,10 +57,10 @@ public class TransactionScript4 extends TransactionScript{
             
       }
       
-      
             
       catch (SQLException exeption) {
-            System.out.println("error");
+            JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
+            exeption.printStackTrace();
       }
        return resultArray;
     }

@@ -36,7 +36,10 @@ public class TransactionScript2 extends TransactionScript{
         
         String query = "SELECT programma.titel, AVG(watch.percentage) FROM watch\n" +
 "	JOIN programma ON programma.ProgrammaID=watch.ProgrammaID\n" +
-"	WHERE watch.AbonnementNr=" + accountID +"  AND programma.titel='" + titel +"'\n" +
+"	JOIN profiel ON watch.AbonnementNr = profiel.AbonnementNr\n" +
+"	JOIN abonnement ON profiel.AbonnementNr = abonnement.AbonnementNr\n" +
+"	JOIN aflevering ON programma.ProgrammaID=aflevering.ProgrammaID\n" +
+"	WHERE abonnement.naam =\"" + accountID + "\" AND aflevering.titelSerie=\"" + titel + "\"\n" +
 "	GROUP BY programma.titel";
         
         
@@ -53,7 +56,7 @@ public class TransactionScript2 extends TransactionScript{
             
             connection.close();
       }catch (SQLException exeption) {
-            JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }finally{
           

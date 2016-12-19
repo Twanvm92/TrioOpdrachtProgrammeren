@@ -14,9 +14,13 @@ import java.util.ArrayList;
 import javax.swing.*;
 import trio.transaction.TransactionResult2;
 import trio.transaction.TransactionResult3;
+import trio.transaction.TransactionResultComboxAbonnement;
+import trio.transaction.TransactionResultComboxSerie;
 import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript2;
 import trio.transaction.TransactionScript3;
+import trio.transaction.TransactionScriptComboxAbonnement;
+import trio.transaction.TransactionScriptComboxSerie;
 
 /**
  *
@@ -31,17 +35,33 @@ public class OverviewPanel2 extends JPanel{
     public OverviewPanel2() {
         setLayout( new BorderLayout(40,40));
        
-     setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
-        myTitles = new JComboBox<String>();
-        myAccounts = new JComboBox<String>();
-      
-        myTitles.addItem("Down");
-        myTitles.addItem("Down");
-        myTitles.addItem("Down");
+        setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
+     
+        // declare and initialize new Transitionscript
+        // put results of the query() method in an arraylist.
+        TransactionScriptComboxSerie script = new TransactionScriptComboxSerie(OverviewPanel2.this);
+        ArrayList<TransactionResultComboxSerie> resultArray = script.query();
         
-        myAccounts.addItem("5285824");
-        myAccounts.addItem("5285824");
-        myAccounts.addItem("5285824");
+        myTitles = new JComboBox<String>();
+        
+        // add results from resultArray to JCombobox
+        for (int x = 0; x < resultArray.size();x++) {
+            TransactionResultComboxSerie result = resultArray.get(x);
+            myTitles.addItem(result.getTitel());
+        }
+         
+        // declare and initialize new Transitionscript
+        // put results of the query() method in an arraylist.
+        TransactionScriptComboxAbonnement script2 = new TransactionScriptComboxAbonnement(OverviewPanel2.this);
+        ArrayList<TransactionResultComboxAbonnement> resultArray2 = script2.query();
+        
+        myAccounts = new JComboBox<String>();
+        
+        // add results from resultArray to JCombobox
+        for (int x = 0; x < resultArray2.size();x++) {
+            TransactionResultComboxAbonnement result = resultArray2.get(x);
+            myAccounts.addItem(result.getNaam());
+        }
         
         titleLabel1 = new JLabel("Selecteer serie  ");
         titleLabel1.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -62,7 +82,10 @@ public class OverviewPanel2 extends JPanel{
         JPanel overview2_Center = new JPanel();
         overview2_Center.setLayout(new BorderLayout(0, 10));
         overview2_Center.add (purposeLabel, BorderLayout.NORTH);
-        text = new JTextArea(100, 100);
+        text = new JTextArea();
+        text.setFont(new Font("Monospaced", Font.PLAIN, 12));
+       text.setLineWrap(true);
+       
         overview2_Center.add (text);
         add(overview2_North, BorderLayout.NORTH);
         add (overview2_Center, BorderLayout.CENTER);
@@ -76,7 +99,7 @@ public class OverviewPanel2 extends JPanel{
                 list = t.query();
                 
                 for(TransactionResult2 r : list){
-                    s += r.toString() + " \n";
+                    s += r.toString() + "\n";
                     
                 }
                 

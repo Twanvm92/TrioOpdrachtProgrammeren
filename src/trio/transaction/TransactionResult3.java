@@ -23,8 +23,8 @@ public class TransactionResult3{
     
     public String toString(){
           
-        String s = " ";
-        s = "titel: " + titel + "           duur: " +  duration;
+        String s = "";
+        s = String.format("Titel: %-30s, duur: %3s", titel, duration);
         
         return s;
         

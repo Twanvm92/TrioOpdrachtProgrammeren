@@ -25,7 +25,7 @@ public class TransactionResult4 {
     public String toString(){
           
         
-      String status =  String.format("Titel film: %-40s  Leeftijdsindicatie: %2d jaar Tijdsduur: %3s minuten", title, viewerGuide, duration);
+      String status =  String.format("Titel film: %-30s  Leeftijdsindicatie: %2d jaar Tijdsduur: %3s minuten", title, viewerGuide, duration);
         
         return status;
         

@@ -72,17 +72,15 @@ public class TransactionScript3 extends TransactionScript{
             
             while(result.next()){
                 TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getString("programma.duur"));
-                 
+
                 resultArray.add(r);
             }
-            
-            
             
             closeConnection(connection, panel); // sluit de connectie met de database
             return resultArray;
             
         }catch (SQLException exeption) { // vang exception op wanneer connectie met database niet gemaakt kan worden
-          JOptionPane.showMessageDialog(panel, "Database connectie kon niet gesloten worden", "Fout", JOptionPane.ERROR_MESSAGE);
+          JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
         }
         catch (NullPointerException npe) { // vang exception op wanneer connectie null is
@@ -92,8 +90,5 @@ public class TransactionScript3 extends TransactionScript{
         return resultArray;
       
     }
-    
-   
-    
   
 }
