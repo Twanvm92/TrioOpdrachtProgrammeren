@@ -6,19 +6,23 @@
 package trio.transaction;
 
 /**
- * This class will 
+ * This class has a getrequest that returns the account name of a query result
  * @author twanv
  */
 public class TransactionResultComboxAbonnement {
     private String naamAbonnement;
     
+    /**
+     * 
+     * @param naamAbonnement The name of an account that got caught by a query.
+     */
     public TransactionResultComboxAbonnement (String naamAbonnement) {
         this.naamAbonnement = naamAbonnement;
     }
     
     /**
-     * 
-     * @return <code>naamAbonnement</code>  The name of the subscriber 
+     * Returns an account name
+     * @return <code>naamAbonnement</code>  The name of the account 
      */
     public String getNaam() {
         return naamAbonnement;

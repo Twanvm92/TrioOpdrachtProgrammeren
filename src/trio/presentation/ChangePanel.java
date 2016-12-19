@@ -5,11 +5,13 @@
  */
 package trio.presentation;
 
+import trio.transaction.TransactionResultComboxProfileNames;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,6 +19,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import trio.transaction.TransactionResultComboxAbonnementNr;
+import trio.transaction.TransactionScriptChange;
+import trio.transaction.TransactionScriptComboxAbonnementNr;
 
 /**
  *
@@ -27,8 +32,10 @@ public class ChangePanel extends JPanel {
             townField, houseNrField, postalcodeField, viewingHabitsField;
     JLabel profileNameLbl, birthdateLbl, fkaccountNrLbl, pkaccountNrLbl, accountNameLbl, accountStreetLbl, townLbl, houseNrLbl,
             postalcodeLbl, programIdLbl, viewingHabitsLbl, viewinghabits, accounts, profiles;
-    JButton addProfileBtn, addAccountBtn, addViewingHabitsBtn;
+    JButton changeProfileBtn, changeAccountBtn, changeViewingHabitsBtn;
     JComboBox programIdCB, profileNameCB, fkaccountNrCB, profileName1CB, pkaccountNrCB;
+      private TransactionScriptComboxAbonnementNr script;
+    private DefaultComboBoxModel accountNrModel;
     
 public ChangePanel(){
     
@@ -72,9 +79,36 @@ public ChangePanel(){
     houseNrField = new JTextField (20);
     postalcodeField = new JTextField (20);
     
-    addProfileBtn = new JButton ("Verander profiel");
-    addAccountBtn = new JButton ("Verander account");
-    addViewingHabitsBtn = new JButton ("Verander kijkgedrag");
+    changeProfileBtn = new JButton ("Verander profiel");
+    changeAccountBtn = new JButton ("Verander account");
+    changeViewingHabitsBtn = new JButton ("Verander kijkgedrag");
+    
+    //declare and initialize new Transitionscript
+    // put results of the query() method in an arraylist.
+    script = new TransactionScriptComboxAbonnementNr(ChangePanel.this);
+    ArrayList<TransactionResultComboxAbonnementNr> resultArray = script.query();
+    List<String> values = new ArrayList();
+
+    // create a combobox that will be used to hold accountnumbers
+    fkaccountNrCB = new JComboBox();
+
+    // add results from resultArray to a list
+    for (int x = 0; x < resultArray.size();x++) {
+        TransactionResultComboxAbonnementNr result = resultArray.get(x);
+        values.add(result.getNaam());
+    }
+    
+    //  add new model with results to the combobox
+    fkaccountNrCB.setModel(new DefaultComboBoxModel(values.toArray()));
+  ;
+  
+    script1 = new TransactionScriptComboxProfileNames(ChangePanel.this);
+    ArrayList<TransactionResultComboxProfileNames> resultArray1 = script.query();
+    List<String> values = new ArrayList();
+
+    profileName1CB.setModel(new DefaultComboBoxModel (values.toArray()));
+    changeAccountBtn.addActionListener(new ChangePanel.ButtonHandler());
+    changeProfileBtn.addActionListener(new ChangePanel.ButtonHandler());
     
     add (profiles);
     add (new JLabel ("")); 
@@ -84,7 +118,7 @@ public ChangePanel(){
     add (birthdateField);
     add (fkaccountNrLbl);
     add (fkaccountNrCB);
-     add (addProfileBtn);
+     add (changeProfileBtn);
       add (new JLabel (""));
       
      add (accounts);
@@ -101,7 +135,7 @@ public ChangePanel(){
      add (houseNrField);
      add (postalcodeLbl);
      add (postalcodeField);
-     add (addAccountBtn);
+     add (changeAccountBtn);
        add (new JLabel (""));
      
      add (viewinghabits);
@@ -112,6 +146,29 @@ public ChangePanel(){
      add (programIdCB);
      add (viewingHabitsLbl);
      add (viewingHabitsField);
-     add (addViewingHabitsBtn);
+     add (changeViewingHabitsBtn);
 }
+    
+     class ButtonHandler implements ActionListener { // listens to actions that have been performed
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           TransactionScriptChange addScript = new TransactionScriptChange(ChangePanel.this); // instantiate the script that performs the queries
+           
+            // listen to what button gets clicked
+            if ( e.getSource() == changeProfileBtn ) {
+                
+                // get strings from textfields and comboboxes
+                String profielNaam = profileNameCB.getSelectedItem().toString();
+                String geboortedatum = birthdateField.getText();
+                String abonnementNr = fkaccountNrCB.getSelectedItem().toString();
+                
+                addScript.qeuryChangeProfiel(abonnementNr, profielNaam, geboortedatum); // execute query
+                
+                birthdateField.setText("");
+            }
+            
+            
+        }
+
+    }
 }

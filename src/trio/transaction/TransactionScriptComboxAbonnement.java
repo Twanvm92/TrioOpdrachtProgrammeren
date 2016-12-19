@@ -10,9 +10,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 /**
- * <code>TransactionScript3</code> enherits from abstract class <code>TransactionScript</code>
- * Executes a query and saves the results in <code>TransactionResult3</code>
- * @see TransactionResult1
+ * <code>TransactionScriptComboboxAbonnement</code> enherits from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResultComboboxAbonnement</code>
+ * @see TransactionResultComboboxAbonnement
  * @author Mika Krooswijk
  * @see TransactionScript
  */
@@ -31,6 +31,10 @@ public class TransactionScriptComboxAbonnement extends TransactionScript{
         resultArray = new ArrayList<>();
     }
     
+    /**
+     * 
+     * @return Returns an arraylist of query rows
+     */
     @Override
     public ArrayList query(){
         
@@ -40,7 +44,7 @@ public class TransactionScriptComboxAbonnement extends TransactionScript{
         
         
       try{
-            Connection connection = this.dbconnection(panel); // make a connection with the database
+            Connection connection = dbconnection(panel); // make a connection with the database
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query); // query gets executed
             

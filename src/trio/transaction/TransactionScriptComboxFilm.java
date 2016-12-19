@@ -10,9 +10,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 /**
- * <code>TransactionScript3</code> enherits from abstract class <code>TransactionScript</code>
- * Executes a query and saves the results in <code>TransactionResult3</code>
- * @see TransactionResult1
+ * <code>TransactionScriptComboboxFilm/code> enherits from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResultComboboxFilm</code>
+ * @see TransactionResultComboxFilm
  * @author Mika Krooswijk
  * @see TransactionScript
  */

@@ -37,11 +37,16 @@ public class OverviewPanel6 extends JPanel{
     public OverviewPanel6() {
         setLayout( new BorderLayout(40,40));
         setBorder(BorderFactory.createEmptyBorder(50,50,50,50)); 
-        myTitles = new JComboBox<String>();
-
+        
+        
+        // declare and initialize new Transitionscript
+        // put results of the query() method in an arraylist.
         TransactionScriptComboxFilm script = new TransactionScriptComboxFilm(this);
         ArrayList<TransactionResultComboxFilm> resultArray = script.query();
-
+        
+        myTitles = new JComboBox<String>();
+        
+        // add results from resultArray to JCombobox
         for ( int x = 0; x < resultArray.size(); x++) {
             TransactionResultComboxFilm result = resultArray.get(x);
             myTitles.addItem(result.getFilm());
@@ -73,7 +78,7 @@ public class OverviewPanel6 extends JPanel{
         add (overview1_Center, BorderLayout.CENTER);
 }
     
-     public class action implements ActionListener { // listens to actions that have been performed
+    public class action implements ActionListener { // listens to actions that have been performed
        @Override
        public void actionPerformed(ActionEvent e) {
            
@@ -97,6 +102,6 @@ public class OverviewPanel6 extends JPanel{
             area.setText(s);
           
        }
-   }
+    }
     
 }

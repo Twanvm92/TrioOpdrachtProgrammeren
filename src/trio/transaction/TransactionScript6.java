@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -73,7 +74,8 @@ public class TransactionScript6 extends TransactionScript{
       
       
       catch (SQLException exeption) {
-            System.out.println("error");
+            JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
+            exeption.printStackTrace();
       }
       
       return resultArray;
