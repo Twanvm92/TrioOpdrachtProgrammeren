@@ -114,10 +114,11 @@ public class TransactionScriptAdd extends TransactionScript{
      * @param naam The name of the profile that watched something
      * @param programmaid The id of a programme that was watched.
      */
-    public void qeuryInsertWatch(String abonnementNr, String naam, String programmaid, String percentage) {
+    public void qeuryInsertWatch(String abonnementNr, String naam, String programmaTitel, String percentage) {
          // fill a string with query data
         String query = "INSERT INTO watch"
-                + " VALUES('" + abonnementNr + "', '" + naam + "', '" + programmaid + "', '" + percentage + "');";
+                + " VALUES('" + abonnementNr + "', '" + naam + "', (SELECT programmaid FROM programma "
+                + "WHERE titel = '" + programmaTitel + "'), '" + percentage + "');";
         
         try{
 
