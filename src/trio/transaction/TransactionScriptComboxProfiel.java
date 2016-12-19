@@ -16,23 +16,26 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
- * <code>TransactionScriptComboxSerie</code> enherits from abstract class <code>TransactionScript</code>
+ * <code>TransactionScriptComboxProfiel</code> enherits from abstract class <code>TransactionScript</code>
  * Executes a query and saves the results in <code>TransactionResultComboxSerie</code>
- * @see TransactionResultComboxSerie
+ * @see TransactionResultComboxProfiel
  * @author Twanvm
  * @see TransactionScript
  */
-public class TransactionScriptComboxSerie extends TransactionScript{
+public class TransactionScriptComboxProfiel extends TransactionScript{
+    private String abonnementNr;
     JPanel panel;
-    ArrayList<TransactionResultComboxSerie> resultArray;
+    ArrayList<TransactionResultComboxProfiel> resultArray;
     
     /**
      * 
      * 
-     * @param panel The panel where the error message from an SQLException shows ons
+     * @param abonnementNr Number of a selected account
+     * @param panel The panel where the error message from an SQLException shows 
      */
     // Contructor initialises
-    public TransactionScriptComboxSerie(JPanel panel){
+    public TransactionScriptComboxProfiel(String abonnementNr, JPanel panel){
+        this.abonnementNr = abonnementNr;
         this.panel = panel;
         resultArray = new ArrayList<>();
     }
@@ -41,7 +44,9 @@ public class TransactionScriptComboxSerie extends TransactionScript{
     public ArrayList query(){
         
         // fill a string with query data
-        String query = "SELECT titel FROM serie ORDER BY titel;";
+        String query = "SELECT profielnaam FROM profiel"
+                + " INNER JOIN abonnement ON abonnement.abonnementnr = profiel.abonnementnr"
+                + " WHERE profiel.abonnementnr = " + abonnementNr + " ORDER BY profielnaam;";
         
         
         
@@ -51,12 +56,12 @@ public class TransactionScriptComboxSerie extends TransactionScript{
             ResultSet result = statement.executeQuery(query); // query gets executed
             
             while(result.next()){ // fill transactionresult class with query results
-                TransactionResultComboxSerie r = new TransactionResultComboxSerie(result.getString("serie.titel"));
+                TransactionResultComboxProfiel r = new TransactionResultComboxProfiel(result.getString("profielnaam"));
                 resultArray.add(r);
             }
             closeConnection(connection, panel); // close connection with the database
       }catch (SQLException exeption) { // catch exception when connection with database fails
-            JOptionPane.showMessageDialog(panel, "Series were not loaded", "error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Profiles were not loaded", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
       return resultArray;
