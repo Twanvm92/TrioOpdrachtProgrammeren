@@ -50,7 +50,7 @@ public class TransactionScriptChange extends TransactionScript {
     public void qeuryChangeProfiel(String abonnementNr, String profielNaam, String geboortedatum) {
         // fill a string with query data
         String query = "UPDATE profiel"
-                + " SET profielNaam = '" + profielNaam + "', geboortedatum = '" + geboortedatum + "' WHERE AbonnementNr = '" + abonnementNr + "'";
+                + " SET geboortedatum = '" + geboortedatum + "' WHERE AbonnementNr = " + abonnementNr + " AND profielNaam = '" + profielNaam + "'";
         
         try{
 
@@ -78,12 +78,12 @@ public class TransactionScriptChange extends TransactionScript {
      * @param huisnummer The housenumber connected to an account
      * @param woonplaats The city connected to an account
      */
-    public void qeuryInsertAbonnement(String abonnementNr, String naam, String straat,
+    public void qeuryChangeAbonnement(String abonnementNr, String naam, String straat,
             String postcode, String huisnummer, String woonplaats) {
         // fill a string with query data
-        String query = "INSERT INTO abonnement"
-                + " VALUES(" + abonnementNr + ", '" + naam + "', '" + straat
-                + "', '" + postcode + "', '" + huisnummer + "', '" + woonplaats + "');";
+        String query = "UPDATE abonnement SET naam = '" + naam + "' , straat = '" + straat + "', postcode = '" + postcode + "', huisnummer = " + huisnummer +
+                ", Woonplaats = '" + woonplaats + "' WHERE AbonnementNr = " + abonnementNr;
+        
         
         try{
 
@@ -95,9 +95,9 @@ public class TransactionScriptChange extends TransactionScript {
             closeConnection(connection, panel); // close connection with the database
             
             //show a pop-up message when account has been created
-            JOptionPane.showMessageDialog(panel, "Account has been created!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Account has been changed!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
       }catch (SQLException exeption) { // catch exception when connection with database fails and does something with it
-            JOptionPane.showMessageDialog(panel, "Could not create account", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Could not change account", "Error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
     }
