@@ -108,10 +108,13 @@ public class TransactionScriptChange extends TransactionScript {
      * @param naam The name of the profile that watched something
      * @param programmaid The id of a programme that was watched.
      */
-    public void qeuryInsertWatch(String abonnementNr, String naam, String programmaid, String percentage) {
+    public void qeuryChangeWatch(String abonnementNr, String naam, String programmaid, String percentage) {
          // fill a string with query data
-        String query = "INSERT INTO watch"
-                + " VALUES('" + abonnementNr + "', '" + naam + "', '" + programmaid + "', '" + percentage + "');";
+         
+        
+    
+        String query = "UPDATE watch SET watch.percentage = " + percentage + " WHERE watch.AbonnementNr = " + abonnementNr + " AND watch.profielNaam = '" + naam + "' AND watch.ProgrammaID = ( SELECT programma.ProgrammaID FROM" +
+                " programma WHERE programma.titel = '" + programmaid + "' );";
         
         try{
 
@@ -123,9 +126,9 @@ public class TransactionScriptChange extends TransactionScript {
             closeConnection(connection, panel); // close connection with the database
             
             //show a pop-up message when account has been created
-            JOptionPane.showMessageDialog(panel, "Watch has been created!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panel, "Watch has been changed!", "SUCCES", JOptionPane.INFORMATION_MESSAGE);
       }catch (SQLException exeption) { // catch exception when connection with database fails and does something with it
-          JOptionPane.showMessageDialog(panel, "Could not create watch", "Error", JOptionPane.ERROR_MESSAGE);
+          JOptionPane.showMessageDialog(panel, "Could not change watch.", "Error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }
     }
