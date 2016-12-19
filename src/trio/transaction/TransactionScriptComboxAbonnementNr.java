@@ -8,6 +8,7 @@ package trio.transaction;
 
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  * <code>TransactionScriptComboboxAbonnementNr</code> enherits from abstract class <code>TransactionScript</code>
@@ -54,7 +55,8 @@ public class TransactionScriptComboxAbonnementNr extends TransactionScript{
             }
             closeConnection(connection, panel); // close connection with the database
       }catch (SQLException exeption) { // catch exception when connection with database fails
-            System.out.println("error");
+            JOptionPane.showMessageDialog(panel, "Accountnumber were not loaded", "error", JOptionPane.ERROR_MESSAGE);
+            exeption.printStackTrace();
       }
       return resultArray;
     }
