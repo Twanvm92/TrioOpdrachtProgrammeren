@@ -9,7 +9,10 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,6 +20,18 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import trio.transaction.TransactionResultAbonnementAll;
+import trio.transaction.TransactionResultComboxAbonnementNr;
+import trio.transaction.TransactionResultComboxProfiel;
+import trio.transaction.TransactionResultComboxProgrTitel;
+import trio.transaction.TransactionScriptAbonnementAll;
+import trio.transaction.TransactionScriptChange;
+import trio.transaction.TransactionScriptComboxAbonnementNr;
+import trio.transaction.TransactionScriptComboxProfiel;
+import trio.transaction.TransactionScriptAbonnementAll;
+import trio.transaction.TransactionScriptCombxProgrTitel2;
+
+
 
 /**
  *
@@ -27,8 +42,14 @@ public class ChangePanel extends JPanel {
             townField, houseNrField, postalcodeField, viewingHabitsField;
     JLabel profileNameLbl, birthdateLbl, fkaccountNrLbl, pkaccountNrLbl, accountNameLbl, accountStreetLbl, townLbl, houseNrLbl,
             postalcodeLbl, programIdLbl, viewingHabitsLbl, viewinghabits, accounts, profiles;
-    JButton addProfileBtn, addAccountBtn, addViewingHabitsBtn;
-    JComboBox programIdCB, profileNameCB, fkaccountNrCB, profileName1CB, pkaccountNrCB;
+    JButton changeProfileBtn, changeAccountBtn, changeViewingHabitsBtn;
+    JComboBox programIdCB, profileNameCB, fkaccountNrCB, profileName1CB, pkaccountNrCB, programTitleCB, viewingHabitsAccountNrCB;
+      private TransactionScriptComboxAbonnementNr script;
+      private TransactionScriptComboxProfiel scriptprofiel;
+      private TransactionScriptAbonnementAll all;
+      private TransactionScriptCombxProgrTitel2 scriptProgram;
+      
+    private DefaultComboBoxModel accountNrModel;
     
 public ChangePanel(){
     
@@ -72,9 +93,58 @@ public ChangePanel(){
     houseNrField = new JTextField (20);
     postalcodeField = new JTextField (20);
     
-    addProfileBtn = new JButton ("Verander profiel");
-    addAccountBtn = new JButton ("Verander account");
-    addViewingHabitsBtn = new JButton ("Verander kijkgedrag");
+    changeProfileBtn = new JButton ("Verander profiel");
+    changeAccountBtn = new JButton ("Verander account");
+    changeViewingHabitsBtn = new JButton ("Verander kijkgedrag");
+    
+    //declare and initialize new Transitionscript
+    // put results of the query() method in an arraylist.
+    script = new TransactionScriptComboxAbonnementNr(ChangePanel.this);
+    ArrayList<TransactionResultComboxAbonnementNr> resultArray = script.query();
+    List<String> values = new ArrayList();
+
+    // create a combobox that will be used to hold accountnumbers
+    fkaccountNrCB = new JComboBox();
+
+    // add results from resultArray to a list
+    for (int x = 0; x < resultArray.size();x++) {
+        TransactionResultComboxAbonnementNr result = resultArray.get(x);
+        values.add(result.getNaam());
+    }
+    
+    //  add new model with results to the combobox
+    fkaccountNrCB.setModel(new DefaultComboBoxModel(values.toArray()));
+  ;
+  
+    scriptprofiel = new TransactionScriptComboxProfiel(fkaccountNrCB.getSelectedItem().toString(), ChangePanel.this);
+    ArrayList<TransactionResultComboxProfiel> resultArrayProfiel = scriptprofiel.query();
+    List<String> valuesProfiel = new ArrayList();
+    
+    for (int x = 0; x < resultArrayProfiel.size();x++) {
+        TransactionResultComboxProfiel result = resultArrayProfiel.get(x);
+        valuesProfiel.add(result.getNaam());
+    }
+    
+   
+    
+    programTitleCB = new JComboBox();
+    viewingHabitsAccountNrCB = new JComboBox();
+    profileName1CB.setModel(new DefaultComboBoxModel (valuesProfiel.toArray()));
+    profileNameCB.setModel(new DefaultComboBoxModel (valuesProfiel.toArray()));
+    viewingHabitsAccountNrCB.setModel(new DefaultComboBoxModel (values.toArray()));
+    pkaccountNrCB.setModel(new DefaultComboBoxModel (values.toArray()));
+    
+    
+     
+    
+    fkaccountNrCB.addItemListener(new ChangePanel.ComboboxItemChangeListener());
+    pkaccountNrCB.addItemListener(new ChangePanel.ComboboxItemChangeListener());
+    viewingHabitsAccountNrCB.addItemListener(new ChangePanel.ComboboxItemChangeListener());
+    changeAccountBtn.addActionListener(new ChangePanel.ButtonHandler());
+    changeProfileBtn.addActionListener(new ChangePanel.ButtonHandler());
+    changeViewingHabitsBtn.addActionListener(new ChangePanel.ButtonHandler());
+    profileNameCB.addItemListener(new ChangePanel.ComboboxItemChangeListener());
+    
     
     add (profiles);
     add (new JLabel ("")); 
@@ -84,7 +154,7 @@ public ChangePanel(){
     add (birthdateField);
     add (fkaccountNrLbl);
     add (fkaccountNrCB);
-     add (addProfileBtn);
+     add (changeProfileBtn);
       add (new JLabel (""));
       
      add (accounts);
@@ -101,17 +171,158 @@ public ChangePanel(){
      add (houseNrField);
      add (postalcodeLbl);
      add (postalcodeField);
-     add (addAccountBtn);
+     add (changeAccountBtn);
        add (new JLabel (""));
      
      add (viewinghabits);
      add (new JLabel(""));
      add (new JLabel ("Profiel naam"));
      add (profileNameCB);
-     add (new JLabel ("Programma ID: "));
-     add (programIdCB);
+     add (new JLabel ("Abonnement nummer"));
+     add (viewingHabitsAccountNrCB);
+     add (new JLabel ("Programma titel"));
+     add (programTitleCB);
      add (viewingHabitsLbl);
      add (viewingHabitsField);
-     add (addViewingHabitsBtn);
+     add (changeViewingHabitsBtn);
 }
-}
+
+   
+    
+     class ButtonHandler implements ActionListener { // listens to actions that have been performed
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           TransactionScriptChange changeScript = new TransactionScriptChange(ChangePanel.this); // instantiate the script that performs the queries
+           
+            // listen to what button gets clicked
+            if ( e.getSource() == changeProfileBtn ) {
+                
+                // get strings from textfields and comboboxes
+                String profielNaam = profileName1CB.getSelectedItem().toString();
+                String geboortedatum = birthdateField.getText();
+                String abonnementNr = fkaccountNrCB.getSelectedItem().toString();
+                
+                changeScript.qeuryChangeProfiel(abonnementNr, profielNaam, geboortedatum); // execute query
+                
+                birthdateField.setText("");
+            }
+            
+            if (e.getSource() == changeAccountBtn ) {
+               
+                
+                String accountNr = pkaccountNrCB.getSelectedItem().toString();
+                String street = accountStreetField.getText();
+                String name = accountNameField.getText();
+                String houseNumber = houseNrField.getText();
+                String town = townField.getText();
+                String postalcode = postalcodeField.getText();
+                
+                changeScript.qeuryChangeAbonnement(accountNr, name, street, postalcode, houseNumber, town);
+            }
+            
+            
+            if (e.getSource() == changeViewingHabitsBtn) {
+                
+                String accountNr = viewingHabitsAccountNrCB.getSelectedItem().toString();
+                String programTitle = programTitleCB.getSelectedItem().toString();
+                String percentage = viewingHabitsField.getText();
+                String profileName = profileNameCB.getSelectedItem().toString();
+                
+                changeScript.qeuryChangeWatch(accountNr, profileName, programTitle, percentage);
+            }
+            
+            
+        }
+
+    }
+     
+      
+      
+      class ComboboxItemChangeListener implements ItemListener{
+        /**
+         * Listens if an item in the combobox <code>kijkgedragAccountNrCB</code> gets selected
+         * @param event event that fires after an item in the combobox <code>kijkgedragAccountNrCB</code>
+         * changed.
+         */
+        @Override
+        public void itemStateChanged(ItemEvent event) {
+           if (event.getStateChange() == ItemEvent.SELECTED) {
+               
+               if ( event.getSource() == pkaccountNrCB) {
+               
+               // Make new script and fire querie again for new results and make a list
+                TransactionScriptAbonnementAll script = new TransactionScriptAbonnementAll(ChangePanel.this, pkaccountNrCB.getSelectedItem().toString());
+                ArrayList<TransactionResultAbonnementAll> list = script.query();
+                TransactionResultAbonnementAll all = list.get(0);
+
+                accountNameField.setText( all.getNaam());
+                accountStreetField.setText( all.getStraat());
+                townField.setText( all.getWoonplaats());
+                houseNrField.setText("" + all.getHuisnummer());
+                postalcodeField.setText( all.getPostcode());
+                System.out.println(all.getNaam());
+                
+                
+               }
+               
+               if (event.getSource() == fkaccountNrCB) {
+                    
+             // Make new script and fire querie again for new results and make a list
+                TransactionScriptComboxProfiel script = new TransactionScriptComboxProfiel(fkaccountNrCB.getSelectedItem().toString(), ChangePanel.this);
+                ArrayList<TransactionResultComboxProfiel> resultArray = script.query();
+                List<String> values = new ArrayList();
+                
+                // add results from resultArray to a list
+                for (int x = 0; x < resultArray.size();x++) {
+                    TransactionResultComboxProfiel result = resultArray.get(x);
+                    values.add(result.getNaam());
+                }
+                
+                
+                //  add new model with results to the combobox
+                profileName1CB.setModel(new DefaultComboBoxModel(values.toArray()));
+           }
+        
+               if (event.getSource() == viewingHabitsAccountNrCB) {
+               
+             TransactionScriptComboxProfiel script = new TransactionScriptComboxProfiel(viewingHabitsAccountNrCB.getSelectedItem().toString(), ChangePanel.this);
+                ArrayList<TransactionResultComboxProfiel> resultArray = script.query();
+                List<String> values = new ArrayList();
+                
+                // add results from resultArray to a list
+                for (int x = 0; x < resultArray.size();x++) {
+                    TransactionResultComboxProfiel result = resultArray.get(x);
+                    values.add(result.getNaam());
+                }
+                
+                
+                //  add new model with results to the combobox
+                profileNameCB.setModel(new DefaultComboBoxModel(values.toArray()));
+                
+               }
+               
+               if (event.getSource() == profileNameCB) {
+               
+               // Make new script and fire querie again for new results and make a list
+               TransactionScriptCombxProgrTitel2 script = new TransactionScriptCombxProgrTitel2 (profileNameCB.getSelectedItem().toString(), ChangePanel.this);
+                ArrayList<TransactionResultComboxProgrTitel> resultArray = script.query();
+                List<String> values = new ArrayList();
+                
+                // add results from resultArray to a list
+                for (int x = 0; x < resultArray.size();x++) {
+                    TransactionResultComboxProgrTitel result = resultArray.get(x);
+                    values.add(result.getProgramme());
+                }
+                
+                
+                //  add new model with results to the combobox
+                    programTitleCB.setModel(new DefaultComboBoxModel(values.toArray()));
+                
+               }
+          
+           }
+        }       
+    }
+
+      
+      }

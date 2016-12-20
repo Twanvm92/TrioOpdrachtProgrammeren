@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import javax.swing.*;
 import trio.domain.Cards;
-import trio.domain.Program;
 
 /**
  *
