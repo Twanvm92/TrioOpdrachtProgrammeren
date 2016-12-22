@@ -12,8 +12,10 @@ import trio.domain.Cards;
 import trio.transaction.TransactionScript;
 
 /**
- *
- * @author lukab
+ * The <code>ControlePanel</code> exists to change the cards by using buttons
+ * @see NetflixView
+ * @author Lukab
+ * @see Cards
  */
 public class ControlPanel extends JPanel {
     private JButton overviewBtn_1, overviewBtn_2, overviewBtn_3, overviewBtn_4, overviewBtn_5, overviewBtn_6,
@@ -27,8 +29,13 @@ public ControlPanel(NetfilxView view){
     this.view = view;
     cards = new Cards(view);
     
+    
     setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    
+    //initialize the array of buttons (6 buttons)
     button = new JButton[6];
+    
+    //Add buttons to the array of buttons
     button[0] = overviewBtn_1;
     button[1] =  overviewBtn_2;
     button[2] = overviewBtn_3;
@@ -61,7 +68,7 @@ public ControlPanel(NetfilxView view){
     add (Box.createRigidArea(new Dimension(0, 100)));
     
     
-    
+    // uses a loop to add buttons to array and add an actionlistener to all the buttons
     for (int i= 0; i< 6; i++){
         
         button[i] = new JButton("Overzicht " + (i+1));
@@ -84,6 +91,7 @@ public ControlPanel(NetfilxView view){
 public class controlHandler implements ActionListener {
     public void actionPerformed (ActionEvent e) {
         
+        // shows a card after deciding which button was pressed
        if (e.getSource() == button[0])  {
            cards.showCard1();
        

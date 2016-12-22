@@ -6,17 +6,24 @@
 package trio.transaction;
 
 /**
- *
- * @author Mika Krooswijk
+ * This class has a getrequest that returns the id of a program of a query result
+ * @author mikakrooswijk
  */
 public class TransactionResultProgramID{
-    
+     /**
+     * 
+     * @param programmaID The ID of a program that got caught by a query
+     */
     String programmaID;
     
     public TransactionResultProgramID(String id){
         this.programmaID = id;
     }
     
+        /**
+     * 
+     * @return The ID of a program
+     */
     public String getNaam(){
         return programmaID;
     }

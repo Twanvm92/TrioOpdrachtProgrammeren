@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
- * <code>TransactionScript3</code> erft methodes van abstracte klasse <code>TransactionScript</code>
- * * Voert een querie uit op de database en slaat de results op in <code>TransactionResult1</code>
- * @author Mika Krooswijk
+ * <code>TransactionScript3</code> enherits the method from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResult3</code>
  * @see TransactionResult3
+ * @author Mika Krooswijk
  * @see TransactionScript
  */
 public class TransactionScript3 extends TransactionScript{
@@ -28,10 +28,10 @@ public class TransactionScript3 extends TransactionScript{
     ArrayList<TransactionResult3> resultArray;
     /**
      * 
-     * @param abonnement het abonnement dat meegegeven wordt aan een query.
-     * @param panel dit is het paneel waar de error message van een exception op verschijnt.
+     * @param abonnement the abonnement that is used as a parameter
+     * @param panel The panel where the error message from an SQLException shows on
      */
-    // Contructor initialiseert
+    // Contructor initialises
     public TransactionScript3(String abonnement, JPanel panel){
         this.abonnement = abonnement;
 
@@ -44,17 +44,12 @@ public class TransactionScript3 extends TransactionScript{
 
     }
 
-    /**
-     * @see TransactionScript gebruikt database connection methode van deze klasse
-     */
-
-
 
 
     public ArrayList query(){
 
         
-        // vult een string met query gegevens
+        // fills a string with query data
         String query = "SELECT DISTINCT programma.titel, programma.duur FROM abonnement\n" +
 " 	INNER JOIN profiel ON abonnement.abonnementNr = profiel.abonnementNr\n" +
 " 	INNER JOIN watch ON profiel.abonnementNr = watch.abonnementNr\n" +
@@ -65,25 +60,25 @@ public class TransactionScript3 extends TransactionScript{
         
   
         try{
-            Connection connection = this.dbconnection(panel); // maak connectie met de database, geeft panel mee voor error-message
+            Connection connection = this.dbconnection(panel); // make a connection with the database
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query); // query wordt uitgevoerd
+            ResultSet result = statement.executeQuery(query); // query gets executed
             
             
-            while(result.next()){
+            while(result.next()) {// fill array with transactionresults based on the query results
                 TransactionResult3 r = new TransactionResult3( result.getString("programma.titel"), result.getString("programma.duur"));
 
                 resultArray.add(r);
             }
             
-            closeConnection(connection, panel); // sluit de connectie met de database
-            return resultArray;
+            closeConnection(connection, panel); // close connection with the database
+            return resultArray; 
             
-        }catch (SQLException exeption) { // vang exception op wanneer connectie met database niet gemaakt kan worden
+        }catch (SQLException exeption) { // // exception when database connection had failed
           JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
         }
-        catch (NullPointerException npe) { // vang exception op wanneer connectie null is
+        catch (NullPointerException npe) { // // exception when null
           
         }
   

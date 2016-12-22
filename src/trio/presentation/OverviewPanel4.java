@@ -14,8 +14,10 @@ import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript4;
 
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel4 </code> Show the fourth overview of the application 
+ * @see TransactionResult4
+ * @author Lukab
+ * @see TransactionScript4
  */
 public class OverviewPanel4 extends JPanel{
     
@@ -36,7 +38,8 @@ public class OverviewPanel4 extends JPanel{
        area.setLineWrap(true);
        
     
-
+       // declare and initialize new Transitionscript
+        // put results of the query() method in an arraylist.
         script = new TransactionScript4();
         
         ArrayList array = script.query();

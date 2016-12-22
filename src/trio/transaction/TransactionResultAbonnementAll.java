@@ -6,8 +6,8 @@
 package trio.transaction;
 
 /**
- *
- * @author lukab
+ * This class has a getrequest that returns everything of a query result
+ * @author twanv
  */
 public class TransactionResultAbonnementAll {
     
@@ -30,17 +30,35 @@ public class TransactionResultAbonnementAll {
         return naam;
     }
     
+    
+     /**
+     * Returns a street name
+     * @return <code>straat</code>  The name of the street
+     */
     public String getStraat() {
         return straat;
     }
     
+     /**
+     * Returns a city 
+     * @return <code>woonplaats</code>  The name of the city
+     */
     public String getWoonplaats(){
         return woonplaats;
     }
     
+    /**
+     * Returns a housenumber
+     * @return <code>huisnummer</code>  The housenumber of an account
+     */
     public int getHuisnummer() {
         return huisnummer;
     }
+    
+      /**
+     * Returns a postalcode
+     * @return <code>postcode</code>  The postalcode of an account
+     */
     
     public String getPostcode() {
         return postcode;

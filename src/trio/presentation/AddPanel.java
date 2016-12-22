@@ -19,8 +19,11 @@ import javax.swing.*;
 import trio.transaction.*;
 
 /**
- *
- * @author lukab
+ * The user can add accounts, profile and
+ * viewinghabits by using <code>AddPanel</code>
+ * @see NetflixView
+ * @author Lukab, mikakrooswijk
+ * @see ControlPanel
  */
 public class AddPanel extends JPanel{
     JTextField profileNameField, birthdateField, fkaccountNrField,pkaccountNrField, accountNameField, accountStreetField, 
@@ -59,7 +62,7 @@ public AddPanel(){
     viewingHabitsField = new JTextField (20);
     
     
-    programIdLbl = new JLabel ("Programma ID"); //Combobox met programma's?'
+    programIdLbl = new JLabel ("Programma ID"); 
     programmaTitelCB = new JComboBox();
     
     

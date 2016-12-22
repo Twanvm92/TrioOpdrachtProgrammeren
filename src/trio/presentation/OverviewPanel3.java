@@ -14,8 +14,10 @@ import trio.transaction.*;
 
 
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel3 </code> Show the third overview of the application 
+ * @see TransactionResult3
+ * @author Lukab, mikakrooswijk
+ * @see TransactionScript3
  */
 public class OverviewPanel3 extends JPanel {
     
@@ -67,7 +69,7 @@ public class OverviewPanel3 extends JPanel {
         
         
 }
-    class action implements ActionListener{
+    class action implements ActionListener { // listens to actions that have been performed
             public void actionPerformed(ActionEvent e){
 
                 String s = ""; 

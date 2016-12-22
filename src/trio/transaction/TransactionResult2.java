@@ -6,8 +6,8 @@
 package trio.transaction;
 
 /**
- *
- * @author Mika Krooswijk
+ * This class has a string method that returns the results of the second question
+ * @author mikakrooswijk
  */
 public class TransactionResult2{
     String account;
@@ -19,6 +19,10 @@ public class TransactionResult2{
         this.avg = avg;
     }
     
+      /**
+     * Returns a string
+     * @return <code>s</code>  The answer that is displayed on the panel
+     */
     
     public String toString(){
           

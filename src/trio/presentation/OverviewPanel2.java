@@ -23,8 +23,10 @@ import trio.transaction.TransactionScriptComboxAbonnement;
 import trio.transaction.TransactionScriptComboxSerie;
 
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel2 </code> Show the second overview of the application 
+ * @see TransactionResult2
+ * @author Lukab, mikakrooswijk
+ * @see TransactionScript2
  */
 public class OverviewPanel2 extends JPanel{
    
@@ -90,7 +92,7 @@ public class OverviewPanel2 extends JPanel{
         add(overview2_North, BorderLayout.NORTH);
         add (overview2_Center, BorderLayout.CENTER);
 }
-    class action implements ActionListener{
+    class action implements ActionListener { // listens to actions that have been performed
             public void actionPerformed(ActionEvent e){
 
                 String s = ""; 

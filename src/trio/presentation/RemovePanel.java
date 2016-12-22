@@ -20,8 +20,11 @@ import trio.transaction.TransactionScript;
 import trio.transaction.*;
 
 /**
- *
- * @author lukab
+ * The user can delete accounts, profile and
+ * viewinghabits by using <code>RemovePanel</code>
+ * @see NetflixView
+ * @author Lukab, mikakrooswijk
+ * @see ControlPanel
  */
 public class RemovePanel extends JPanel {
      JComboBox<String> overviewCB;

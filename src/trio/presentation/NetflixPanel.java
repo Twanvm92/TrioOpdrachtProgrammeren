@@ -11,8 +11,11 @@ import javax.swing.*;
 import trio.domain.Cards;
 
 /**
- *
- * @author lukab
+ * The <code> NetflixPanel </code> is the basic panel that links the <code> ControlPanel </code>
+ * and <code> NetfilxView </code> together
+ * @see ControlPanel
+ * @author Lukab
+ * @see NetfilxView
  */
 public class NetflixPanel extends JPanel  {
     private ControlPanel panel;
@@ -22,6 +25,8 @@ public NetflixPanel() {
      view = new NetfilxView();
     
      setBackground (Color.LIGHT_GRAY);
+     
+     // initialize the ControlPanel with a view object as an argument.
     panel = new ControlPanel(view);
     panel.setBackground(Color.DARK_GRAY);
    

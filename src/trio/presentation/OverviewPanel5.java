@@ -14,9 +14,12 @@ import trio.transaction.TransactionScript;
 import trio.transaction.TransactionScript3;
 import trio.transaction.TransactionResult5;
 import trio.transaction.TransactionScript5;
+
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel5 </code> Show the fifth overview of the application 
+ * @see TransactionResult5
+ * @author Lukab
+ * @see TransactionScript5
  */
 public class OverviewPanel5 extends JPanel{
     JLabel purposeLabel;
@@ -34,6 +37,8 @@ public class OverviewPanel5 extends JPanel{
        area.setLineWrap(true);
      
        
+       // declare and initialize new Transitionscript
+        // put results of the query() method in an arraylist.
        script = new TransactionScript5();
         
         ArrayList array = script.query();

@@ -16,12 +16,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
- * <code>TransactionScript1</code> erft methodes van abstracte klasse <code>TransactionScript</code>
- * Voert een querie uit op de database en slaat de results op in <code>TransactionResult1</code>
+ * <code>TransactionScript1</code> enherits the method from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResult1</code>
  * @see TransactionResult1
  * @author Mika Krooswijk
  * @see TransactionScript
  */
+
+
 public class TransactionScript1 extends TransactionScript{
     private String serie;
     JPanel panel;
@@ -30,10 +32,10 @@ public class TransactionScript1 extends TransactionScript{
 
     /**
      * 
-     * @param serie de serie die meegegeven wordt aan een query.
-     * @param panel dit is het paneel waar de error message van een exception op verschijnt.
+     * @param serie the serie that is used as a parameter
+     * @param panel The panel where the error message from an SQLException shows on
      */
-    // Contructor initialiseert
+    // Contructor initialise
 
     public TransactionScript1(String serie, JPanel panel){
         this.serie = serie;
@@ -48,8 +50,11 @@ public class TransactionScript1 extends TransactionScript{
     public ArrayList query(){
         
 
-        
-        // vult een string met query gegevens
+       /** 
+        * Selects the program title and watch percentage of specific serie title
+        * @param serie the specific serie title
+        */
+          // fill a string with query data
         String query = " SELECT programma.titel, aflevering.volgnummer, AVG(watch.percentage) FROM watch" +
 " 	INNER JOIN programma ON watch.programmaid = programma.programmaid" +
 " 	INNER JOIN aflevering ON programma.programmaid = aflevering.programmaid" +
@@ -61,19 +66,19 @@ public class TransactionScript1 extends TransactionScript{
         
       try{
 
-            Connection connection = this.dbconnection(panel); // maak connectie met de database, geeft panel mee voor error-message
+            Connection connection = this.dbconnection(panel); // make a connection with the database
 
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query); // query wordt uitgevoerd
+            ResultSet result = statement.executeQuery(query); // query gets executed
 
-            while(result.next()){ // vul transactionresult class met resultaten van de query
+            while(result.next()){ // fill array with transactionresults based on the query results
                 TransactionResult1 r = new TransactionResult1(result.getString("programma.titel"), result.getDouble("AVG(watch.percentage)") );
                 
                 resultArray.add(r);
                 
             }
-            closeConnection(connection, panel); // sluit de connectie met de database
-      }catch (SQLException exeption) { // vangt exception op wanneer connectie met database niet gemaakt kan worden
+            closeConnection(connection, panel);// close connection with the database
+      }catch (SQLException exeption) { // exception when database connection had failed
             JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }

@@ -20,8 +20,10 @@ import trio.transaction.TransactionScript3;
 import trio.transaction.TransactionScriptComboxSerie;
 
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel1 </code> Show the first overview of the application 
+ * @see TransactionResult1
+ * @author Lukab, mikakrooswijk
+ * @see TransactionScript1
  */
 public class OverviewPanel1 extends JPanel {
     JComboBox<String> myTitles ;
