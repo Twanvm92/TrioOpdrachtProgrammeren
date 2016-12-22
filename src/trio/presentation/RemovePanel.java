@@ -48,7 +48,7 @@ public RemovePanel(){
    
     
 
-    abonnemetnArray = new ArrayList<String>();
+    abonnemetnArray = new ArrayList<String>(); //fill the array with all the subscribtion names in the database
     ArrayList<TransactionResultComboxAbonnementNr> abList = new ArrayList<TransactionResultComboxAbonnementNr>();
     TransactionScriptComboxAbonnementNr ab = new TransactionScriptComboxAbonnementNr(RemovePanel.this);
     abList = ab.query();
@@ -56,7 +56,7 @@ public RemovePanel(){
         abonnemetnArray.add(r.getNaam());
     }
    
-    profileArray = new ArrayList<String>();
+    profileArray = new ArrayList<String>(); // fills the array  with all the profilesnames in the database
     ArrayList<TransactionResultComboxProfiel> proList = new ArrayList<TransactionResultComboxProfiel>();
     TransactionScriptComboxProfielNaam pro = new TransactionScriptComboxProfielNaam(RemovePanel.this);
     proList = pro.query();
@@ -65,7 +65,7 @@ public RemovePanel(){
     }
     
     
-    kijkArray = new ArrayList<String>();
+    kijkArray = new ArrayList<String>();// fills the watch array with all the program id's in the watch table
     ArrayList<TransactionResultProgramID> kijkList = new ArrayList<TransactionResultProgramID>();
     TransactionScriptComboxProgramID kijk = new TransactionScriptComboxProgramID(RemovePanel.this);
     kijkList = kijk.query();
@@ -74,9 +74,11 @@ public RemovePanel(){
     }
     
     
+    // fills the comment boxes with the appropriate array
     model = new DefaultComboBoxModel( abonnemetnArray.toArray());
     model1 = new DefaultComboBoxModel ( profileArray.toArray());
     model2 = new DefaultComboBoxModel ( kijkArray.toArray());
+    
     
     
     overviewCB = new JComboBox<String>();
@@ -88,14 +90,14 @@ public RemovePanel(){
 
     
     add (deleteLbl);
-     add (overviewCB);
-     add (deleteCB);
+    add (overviewCB);
+    add (deleteCB);
     
   
     add (okButton);
    
 }
-
+    // sets the lower comment box based on the content of the upper comment box
     public class selectHandler implements ActionListener {
       public void actionPerformed(ActionEvent e) {
          
@@ -120,7 +122,7 @@ public RemovePanel(){
              }
       }
     
-
+    // executes the right query bases on the content of the lower commment box
     public class okHandler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             
