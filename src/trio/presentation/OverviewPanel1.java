@@ -81,7 +81,7 @@ public class OverviewPanel1 extends JPanel {
            ArrayList<TransactionResult1> list = new ArrayList<TransactionResult1>();
            list = t.query();
            
-           System.out.println("" + myTitles.getSelectedItem());
+           
            
            for(TransactionResult1 r : list){
                s += r.toString() + "  \n";
