@@ -13,8 +13,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
- *
+ * <code>TransactionScriptChange</code> enherits from abstract class <code>TransactionScript</code>
+ * Executes a query and changes existing data.
+ * @see TransactionResultChange
  * @author lukab
+ * @see TransactionScript
  */
 public class TransactionScriptChange extends TransactionScript {
         JPanel panel;
@@ -70,7 +73,7 @@ public class TransactionScriptChange extends TransactionScript {
     }
     
     /**
-     * Inserts a new account into the database by firing a query
+     * Changes existing abonnement data by firing a query
      * @param abonnementNr The unique number of an account
      * @param naam The name connected to a account
      * @param straat The streetname connected to an account
@@ -103,7 +106,7 @@ public class TransactionScriptChange extends TransactionScript {
     }
     
     /**
-     * Inserts a new watch into the database by firing a query
+     * Change data of a existing watch by firing a query
      * @param abonnementNr The account number of the profile that watched something
      * @param naam The name of the profile that watched something
      * @param programmaid The id of a programme that was watched.

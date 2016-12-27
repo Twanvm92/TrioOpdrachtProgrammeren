@@ -18,15 +18,24 @@ import javax.swing.JPanel;
 
 
 /**
- *
- * @author lukab
+ * <code>TransactionScript6</code> enherits the method from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResult6</code>
+ * @see TransactionResult6
+ * @author Mika Krooswijk
+ * @see TransactionScript
  */
+
 public class TransactionScript6 extends TransactionScript{
         JPanel panel;
     ArrayList<TransactionResult6> resultArray;
         String film;
     
-    
+     /**
+     * 
+     * @param film the film that is used as a parameter
+     * @param panel The panel where the error message from an SQLException shows on
+     */
+    // Contructor initialise
     
     public TransactionScript6(String film){
         this.panel = panel;
@@ -38,9 +47,9 @@ public class TransactionScript6 extends TransactionScript{
     
     public ArrayList query(){
         
-        Connection connection = this.dbconnection(panel);
+        Connection connection = this.dbconnection(panel); // make a connection with the database
         
-        
+         // fill a string with query data
         String query = "SELECT programma.titel, COUNT(watch.ProgrammaID) as quantity FROM programma\n" +
 "	JOIN watch ON programma.ProgrammaID=watch.ProgrammaID\n" +
 "	WHERE programma.titel = '" + film +"' AND watch.percentage = 100\n" +
@@ -59,7 +68,7 @@ public class TransactionScript6 extends TransactionScript{
             
              
             
-            while(result.next()){
+            while(result.next()) { // fill array with transactionresults based on the query results {
                 TransactionResult6 r = new TransactionResult6( result.getString("programma.titel"), result.getInt("quantity"));
                 resultArray.add(r);
                 
@@ -67,13 +76,13 @@ public class TransactionScript6 extends TransactionScript{
             }
            
              
-            closeConnection(connection, panel);
+            closeConnection(connection, panel); // close connection with the database
             
             
       }
       
       
-      catch (SQLException exeption) {
+      catch (SQLException exeption) {// exception when database connection had failed {
             JOptionPane.showMessageDialog(panel, "Database connection failed", "error", JOptionPane.ERROR_MESSAGE);
             exeption.printStackTrace();
       }

@@ -11,21 +11,30 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import trio.presentation.NetfilxView;
 
+
 /**
- *
- * @author lukab
+ * <code>Cards</code> is used in <code>ControlPanel</code>
+ * Uses <code>NetfilxView</code> to show the cards
+ * @see NetfilxView
+ * @author Lukab
+ * @see ControlPanel
+ * @param  view a NetfilxView object
  */
+
 public class Cards {
     private NetfilxView view;
 
 
-            
+   // initialize view 
     public Cards(NetfilxView view){
         this.view = view; 
    
        
     }
     
+    /**
+     * Makes the cards for the cardlayout visible on screen (view)
+     */
     
       public void showCard1(){
         

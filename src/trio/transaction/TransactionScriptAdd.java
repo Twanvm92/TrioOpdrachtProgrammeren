@@ -51,7 +51,7 @@ public class TransactionScriptAdd extends TransactionScript{
      * Inserts a new profile into the database by firing a query
      * @param abonnementNr The unique number of an account
      * @param profielNaam  The profile name connected to the account
-     * @param geboortedatum The birthdate of the person behind the profile
+       // fill a string with query data
      */
     public void qeuryInsertProfiel(String abonnementNr, String profielNaam, String geboortedatum) {
         // fill a string with query data

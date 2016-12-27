@@ -20,8 +20,10 @@ import trio.transaction.TransactionScript3;
 import trio.transaction.TransactionScriptComboxSerie;
 
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel1 </code> Show the first overview of the application 
+ * @see TransactionResult1
+ * @author Lukab, mikakrooswijk
+ * @see TransactionScript1
  */
 public class OverviewPanel1 extends JPanel {
     JComboBox<String> myTitles ;
@@ -79,7 +81,7 @@ public class OverviewPanel1 extends JPanel {
            ArrayList<TransactionResult1> list = new ArrayList<TransactionResult1>();
            list = t.query();
            
-           System.out.println("" + myTitles.getSelectedItem());
+           
            
            for(TransactionResult1 r : list){
                s += r.toString() + "  \n";

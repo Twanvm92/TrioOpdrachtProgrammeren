@@ -34,8 +34,11 @@ import trio.transaction.TransactionScriptCombxProgrTitel2;
 
 
 /**
- *
- * @author lukab
+ * The user can change accounts, profile and
+ * viewinghabits by using <code> ChangePanel </code>
+ * @see NetflixView
+ * @author Lukab
+ * @see ControlPanel
  */
 public class ChangePanel extends JPanel {
     JTextField birthdateField, fkaccountNrField,pkaccountNrField, accountNameField, accountStreetField, 
@@ -80,7 +83,7 @@ public ChangePanel(){
     profileNameCB = new JComboBox();
     fkaccountNrCB = new JComboBox();
     pkaccountNrCB = new JComboBox();
-    programIdLbl = new JLabel ("Programma ID"); //Combobox met programma's?'
+    programIdLbl = new JLabel ("Programma ID"); 
     programIdCB = new JComboBox();
     
   
@@ -240,8 +243,8 @@ public ChangePanel(){
       
       class ComboboxItemChangeListener implements ItemListener{
         /**
-         * Listens if an item in the combobox <code>kijkgedragAccountNrCB</code> gets selected
-         * @param event event that fires after an item in the combobox <code>kijkgedragAccountNrCB</code>
+         * Listens if an item in the combobox  gets selected
+         * @param event event that fires after an item in the combobox
          * changed.
          */
         @Override

@@ -6,8 +6,8 @@
 package trio.transaction;
 
 /**
- *
- * @author Mika Krooswijk
+ * This class has a string method that returns the results of the third question
+ * @author mikakrooswijk
  */
 public class TransactionResult3{
     String titel;
@@ -20,7 +20,10 @@ public class TransactionResult3{
        
     }
     
-    
+      /**
+     * Returns a string
+     * @return <code>s</code>  The answer that is displayed on the panel
+     */
     public String toString(){
           
         String s = "";

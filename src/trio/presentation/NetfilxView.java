@@ -11,8 +11,11 @@ import javax.swing.*;
 import trio.domain.Cards;
 
 /**
- *
- * @author lukab
+ * The <code> NetfilxView </code> is a panel that the user exactly sees. The layout
+ * change by use of the <code> ControlPanel </code>
+ * @see ControlPanel
+ * @author Lukab
+ * @see Cards
  */
 public class NetfilxView extends JPanel {
     OverviewPanel1 overview1; 
@@ -32,6 +35,8 @@ public class NetfilxView extends JPanel {
    
         cl = new CardLayout();
         setLayout(cl);
+        
+        //initialize the OverviewPanels
          
         overview1 = new OverviewPanel1();
        
@@ -57,7 +62,7 @@ public class NetfilxView extends JPanel {
         
         
         
-        
+        // adds the overviewPanels on the Panel with a special name
         add (overview1, "CARD1");
         add (overview2, "CARD2");
         add (overview3, "CARD3");  

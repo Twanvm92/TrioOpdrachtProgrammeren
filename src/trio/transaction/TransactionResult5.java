@@ -6,7 +6,7 @@
 package trio.transaction;
 
 /**
- *
+ * This class has a string method that returns the results of the fifth question
  * @author lukab
  */
 public class TransactionResult5 {
@@ -19,7 +19,10 @@ public class TransactionResult5 {
        
     }
     
-    
+      /**
+     * Returns a string
+     * @return <code>status</code>  The answer that is displayed on the panel
+     */
     public String toString(){
           
         

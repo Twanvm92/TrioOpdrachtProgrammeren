@@ -13,15 +13,23 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import trio.domain.*;
+import trio.transaction.TransactionResultComboxAbonnementNr;
+import trio.transaction.TransactionResultComboxProfiel;
+import trio.transaction.TransactionScriptDelete;
+import trio.transaction.TransactionScript;
+import trio.transaction.*;
 
 /**
- *
- * @author lukab
+ * The user can delete accounts, profile and
+ * viewinghabits by using <code>RemovePanel</code>
+ * @see NetflixView
+ * @author Lukab, mikakrooswijk
+ * @see ControlPanel
  */
 public class RemovePanel extends JPanel {
      JComboBox<String> overviewCB;
      JComboBox<String> deleteCB;
-     ArrayList<String> movieArray, profileArray, serieArray, accountArray; //dadelijk uit klasse movie
+     ArrayList<String> abonnemetnArray, profileArray, kijkArray; //dadelijk uit klasse movie
      JButton okButton;
      JList movieList, serieList, profileList, accountList;
      DefaultComboBoxModel model, model1, model2, model3;
@@ -39,84 +47,107 @@ public RemovePanel(){
 
     deleteCB = new JComboBox<String>();
     deleteLbl = new JLabel ("Verwijder geselecteerd object");
-    deleteLbl.setFont(new Font("Papyrus", Font.BOLD, 14));
+    deleteLbl.setFont(new Font("SansSerif", Font.BOLD, 14));
    
     
 
-    movieArray = new ArrayList<String>();
-    movieArray.add("Prisoners");
-    movieArray.add("Harry Potter");
-    movieArray.add("movie"); //later aanpassen
+    abonnemetnArray = new ArrayList<String>(); //fill the array with all the subscribtion names in the database
+    ArrayList<TransactionResultComboxAbonnementNr> abList = new ArrayList<TransactionResultComboxAbonnementNr>();
+    TransactionScriptComboxAbonnementNr ab = new TransactionScriptComboxAbonnementNr(RemovePanel.this);
+    abList = ab.query();
+    for(TransactionResultComboxAbonnementNr r : abList){
+        abonnemetnArray.add(r.getNaam());
+    }
    
-   
-    profileArray = new ArrayList<String>();
-    profileArray.add("Profile1");
-    profileArray.add("Profile2");
-    profileArray.add("Profile3");
+    profileArray = new ArrayList<String>(); // fills the array  with all the profilesnames in the database
+    ArrayList<TransactionResultComboxProfiel> proList = new ArrayList<TransactionResultComboxProfiel>();
+    TransactionScriptComboxProfielNaam pro = new TransactionScriptComboxProfielNaam(RemovePanel.this);
+    proList = pro.query();
+    for (TransactionResultComboxProfiel r : proList){
+        profileArray.add(r.getNaam());
+    }
     
     
-    serieArray = new ArrayList<String>();
-    serieArray.add("Breaking Bad");
-    serieArray.add("Dexter");
-    serieArray.add("Hannibal");
+    kijkArray = new ArrayList<String>();// fills the watch array with all the program id's in the watch table
+    ArrayList<TransactionResultProgramID> kijkList = new ArrayList<TransactionResultProgramID>();
+    TransactionScriptComboxProgramID kijk = new TransactionScriptComboxProgramID(RemovePanel.this);
+    kijkList = kijk.query();
+    for(TransactionResultProgramID r : kijkList){
+        kijkArray.add(r.getNaam());
+    }
     
-
-  
-    accountArray = new ArrayList<String>();
-    accountArray.add("Account1");
-    accountArray.add("Account2");
-    accountArray.add("Account3");
     
-    model = new DefaultComboBoxModel( accountArray.toArray());
+    // fills the comment boxes with the appropriate array
+    model = new DefaultComboBoxModel( abonnemetnArray.toArray());
     model1 = new DefaultComboBoxModel ( profileArray.toArray());
-    model2 = new DefaultComboBoxModel ( serieArray.toArray());
-    model3 = new DefaultComboBoxModel ( movieArray.toArray());
+    model2 = new DefaultComboBoxModel ( kijkArray.toArray());
+    
+    
     
     overviewCB = new JComboBox<String>();
     overviewCB.addActionListener(new selectHandler());
-    overviewCB.addItem("Accounts");
-    overviewCB.addItem("Profielen");
-    overviewCB.addItem("Films");
-    overviewCB.addItem("Series");
+    overviewCB.addItem("abonnement");
+    overviewCB.addItem("profiel");
+    overviewCB.addItem("kijkgedrag");
+  
 
     
     add (deleteLbl);
-     add (overviewCB);
-     add (deleteCB);
+    add (overviewCB);
+    add (deleteCB);
     
   
     add (okButton);
    
 }
-
+    // sets the lower comment box based on the content of the upper comment box
     public class selectHandler implements ActionListener {
       public void actionPerformed(ActionEvent e) {
          
-         if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Accounts") {
+         if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "abonnement") {
                 deleteCB.setModel(model);
+                
              }
          
-           if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Films") {
-                deleteCB.setModel(model3);
+           if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "profiel") {
+                deleteCB.setModel(model1);
+               
              }
            
-             if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Series") {
+             if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "kijkgedrag") {
                 deleteCB.setModel(model2);
+                 
              }
              
-               if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "Profielen") {
-                deleteCB.setModel(model1);
-               }
+              
                
                 
              }
       }
     
-
+    // executes the right query bases on the content of the lower commment box
     public class okHandler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             
-            // verwijder db (" DELETE FROM MOVIES/SERIES/PROFILES(etc) WHERE name = (selectedItem)..
+            TransactionScriptDelete delete = new TransactionScriptDelete(RemovePanel.this);
+            
+            if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "abonnement") {
+                delete.deleteSub("" + deleteCB.getSelectedItem());
+                JOptionPane.showMessageDialog(RemovePanel.this, "abonnement data succesvol verwijderd", "", JOptionPane.PLAIN_MESSAGE);
+                
+             }
+         
+           if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "profiel") {
+                 
+               delete.deleteProfiel("" + deleteCB.getSelectedItem());
+               JOptionPane.showMessageDialog(RemovePanel.this, "profiel data succesvol verwijderd", "", JOptionPane.ERROR_MESSAGE);
+             }
+           
+             if (overviewCB.getItemAt(overviewCB.getSelectedIndex()) == "kijkgedrag") {
+                 
+                 delete.deleteKijk("" + deleteCB.getSelectedItem());
+                 JOptionPane.showMessageDialog(RemovePanel.this, "kijkgedrag data succesvol verwijderd", "", JOptionPane.ERROR_MESSAGE);
+             }
         }
     }
 }

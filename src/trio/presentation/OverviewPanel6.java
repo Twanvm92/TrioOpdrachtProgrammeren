@@ -23,8 +23,10 @@ import trio.transaction.TransactionScriptComboxFilm;
 
 
 /**
- *
- * @author lukab
+ * One of the OverviewPanels. <code> OverviewPanel6 </code> Show the sixth overview of the application 
+ * @see TransactionResult6
+ * @author Lukab
+ * @see TransactionScript6
  */
 public class OverviewPanel6 extends JPanel{
     

@@ -16,8 +16,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
- *
+ * <code>TransactionScriptAbonnementAll</code> enherits from abstract class <code>TransactionScript</code>
+ * Executes a query and saves the results in <code>TransactionResultAbonnementAll</code>
+ * @see TransactionResultAbonnementAll
  * @author lukab
+ * @see TransactionScript
  */
 public class TransactionScriptAbonnementAll extends TransactionScript {
         JPanel panel;
