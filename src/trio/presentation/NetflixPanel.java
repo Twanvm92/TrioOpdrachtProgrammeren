@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import trio.domain.Cards;
-import trio.domain.Serie;
 
 /**
  *
