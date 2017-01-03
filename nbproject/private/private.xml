@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Week 3">
-            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxOverview6.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptDelete.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel6.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel3.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxSerie.java</file>
@@ -21,6 +21,8 @@
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript6.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxProfiel.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult1.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptCombxProgrTitel2.java</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultProgramID.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/AddPanel.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxFilm.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/RemovePanel.java</file>
@@ -36,10 +38,10 @@
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxAbonnement.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript2.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/nbproject/build-impl.xml</file>
+            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptAbonnementAll.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript1.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxProfiel.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxProgrTitel.java</file>
-            <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResultComboxSerie.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScript4.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult3.java</file>
@@ -47,18 +49,6 @@
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionResult6.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/transaction/TransactionScriptComboxProgrTitel.java</file>
             <file>file:/E:/Documents/NetbeansProjects/TrioOpdrachtProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
-=======
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/presentation/RemovePanel.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/presentation/OverviewPanel1.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionResultProgramID.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionScript1.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionScriptDelete.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/presentation/NetflixPanel.java</file>
-            <file>file:/C:/Users/Mika%20Krooswijk/Documents/NetBeansProjects/trioProgrammeren/src/trio/transaction/TransactionScriptComboxProgramID.java</file>
->>>>>>> 92b5d568928379634e64f66555c4a16c1394c5ff
         </group>
     </open-files>
 </project-private>
