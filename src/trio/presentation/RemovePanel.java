@@ -29,7 +29,7 @@ import trio.transaction.*;
 public class RemovePanel extends JPanel {
      JComboBox<String> overviewCB;
      JComboBox<String> deleteCB;
-     ArrayList<String> abonnemetnArray, profileArray, kijkArray; //dadelijk uit klasse movie
+     ArrayList<String> abonnemetnArray, profileArray, kijkArray; 
      JButton okButton;
      JList movieList, serieList, profileList, accountList;
      DefaultComboBoxModel model, model1, model2, model3;

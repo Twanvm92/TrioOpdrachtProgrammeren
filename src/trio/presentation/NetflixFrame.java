@@ -18,6 +18,8 @@ public class NetflixFrame extends JFrame {
         setTitle ( "Netflix Statistix");
         setContentPane (new NetflixPanel());
         setVisible( true );
+        
+
                 
                 }
     

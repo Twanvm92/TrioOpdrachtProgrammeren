@@ -29,6 +29,7 @@ public class TransactionScriptDelete extends TransactionScript{
         return null;
     }
     
+    //executes a query that will delete a subscriber from the database
     public void deleteSub(String row){
         String query = "DELETE FROM abonnement WHERE AbonnementNr = \""+ row + "\"";
         
@@ -41,7 +42,7 @@ public class TransactionScriptDelete extends TransactionScript{
             ex.printStackTrace();
         }
     }
-    
+    //executes a query that will delete a profile from the database
     public void deleteProfiel(String row){
         String query = "DELETE FROM profiel WHERE profielNaam = \"" + row + "\"";
         
@@ -54,7 +55,7 @@ public class TransactionScriptDelete extends TransactionScript{
             ex.printStackTrace();
         }
     }
-    
+    //executes a query that will delete a viewing information from the database
     public void deleteKijk(String row){
         String query = "DELETE FROM watch WHERE AbonnementNr = \"" + row + "\"";
         

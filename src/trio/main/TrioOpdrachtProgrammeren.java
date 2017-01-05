@@ -5,6 +5,10 @@
  */
 package trio.main;
 
+import java.awt.Image;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import trio.presentation.NetflixFrame;
 import trio.presentation.NetfilxView;
 import trio.transaction.TransactionScript;
@@ -20,7 +24,9 @@ public class TrioOpdrachtProgrammeren {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        
+        
         
         NetflixFrame frame = new NetflixFrame();
 
