@@ -35,7 +35,7 @@ public NetflixPanel() {
     add (view, BorderLayout.CENTER);
     add (panel, BorderLayout.WEST);
    
-    add (new JLabel("Netflix Statistix :                2016, 23IVT1C, Luka Brinkman (2096156) , Mika Krooswijk (2111998), Twan van Maastricht ()"), BorderLayout.SOUTH);
+    add (new JLabel("Netflix Statistix :                2016, 23IVT1C, Luka Brinkman (2096156) , Mika Krooswijk (2111998), Twan van Maastricht (2113135)"), BorderLayout.SOUTH);
     
     
     

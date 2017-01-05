@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
- * <code>TransactionScriptAdd</code> enherits from abstract class <code>TransactionScript</code>
+ * <code>TransactionScriptDelete</code> enherits from abstract class <code>TransactionScript</code>
  * Executes a query and deletes existing data
  * @see TransactionResultDelete
  * @author Mika Krooswijk
